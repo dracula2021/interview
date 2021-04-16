@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<!-- saved from url=(0110)http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html -->
+<html lang="en-US" class=" "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <title>一、Promise基础用法 | 面试指南</title>
+    
+    <link rel="icon" href="./promise_files/logo.png">
+    <link rel="manifest" href="http://interview.poetries.top/manifest.json">
+    <link rel="apple-touch-icon" href="http://interview.poetries.top/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="http://interview.poetries.top/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="preload" href="./promise_files/0.styles.a3a6df6c.css" as="style"><link rel="preload" href="./promise_files/app.25cf4eee.js.下载" as="script"><link rel="preload" href="./promise_files/5.bc663a4c.js.下载" as="script"><link rel="preload" href="./promise_files/4.1aaf03c6.js.下载" as="script"><link rel="preload" href="./promise_files/12.ac0bc851.js.下载" as="script"><link rel="preload" href="./promise_files/11.3e5297f1.js.下载" as="script"><link rel="prefetch" href="./promise_files/1.d83c2af0.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/10.fdecf69b.js"><link rel="prefetch" href="./promise_files/100.df83f687.js.下载"><link rel="prefetch" href="./promise_files/101.3986f029.js.下载"><link rel="prefetch" href="./promise_files/102.1468be32.js.下载"><link rel="prefetch" href="./promise_files/103.bfef2896.js.下载"><link rel="prefetch" href="./promise_files/104.1731bbb1.js.下载"><link rel="prefetch" href="./promise_files/105.710b118c.js.下载"><link rel="prefetch" href="./promise_files/106.b955d37d.js.下载"><link rel="prefetch" href="./promise_files/107.6f79a916.js.下载"><link rel="prefetch" href="./promise_files/108.34ee5a8e.js.下载"><link rel="prefetch" href="./promise_files/109.f6c05e4d.js.下载"><link rel="prefetch" href="./promise_files/110.a375ddec.js.下载"><link rel="prefetch" href="./promise_files/111.bcc5c187.js.下载"><link rel="prefetch" href="./promise_files/112.afcfef56.js.下载"><link rel="prefetch" href="./promise_files/113.2e7c6e37.js.下载"><link rel="prefetch" href="./promise_files/114.9cfdb334.js.下载"><link rel="prefetch" href="./promise_files/115.063815ec.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/116.4e29ee01.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/117.b106fd0d.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/118.e4e784f7.js"><link rel="prefetch" href="./promise_files/119.94fe014a.js.下载"><link rel="prefetch" href="./promise_files/13.57028e74.js.下载"><link rel="prefetch" href="./promise_files/14.043c3e8a.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/15.a6d0032e.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/16.6094fda8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/17.f17aa05b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/18.9732bfb3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/19.2c38a6bb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/20.92742304.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/21.28c8a661.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/22.3222a772.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/23.8192ecea.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/24.b5156b88.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/25.034d5e81.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/26.c78d8f63.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/27.cd94c89c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/28.b2c8e24c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/29.e9a30c2c.js"><link rel="prefetch" href="./promise_files/3.f5ea6e07.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/30.2bd67425.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/31.6333035e.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/32.1a34dfa0.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/33.b5863ac0.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/34.cababd6c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/35.0b09d4a2.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/36.8f89ed73.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/37.38d590c3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/38.4799c402.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/39.c9d13f25.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/40.21e1dcb8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/41.16e0641a.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/42.9ce6fd83.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/43.8936e729.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/44.5ebdd233.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/45.ce59a54c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/46.b6f1380b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/47.5fe8aac4.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/48.a31741eb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/49.16132e72.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/50.ca74d5c9.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/51.f21f79ee.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/52.6ff2b7c5.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/53.003482ca.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/54.136b1210.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/55.5d00c7ca.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/56.e5b5668d.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/57.9275f210.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/58.dcf3e81b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/59.5cbf4407.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/6.f2ac32df.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/60.ecfb5f55.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/61.8356d65b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/62.8ca03065.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/63.a0c06a04.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/64.406f4c0f.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/65.9d0c9d57.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/66.ca2ccee4.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/67.b01df864.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/68.e99acf6a.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/69.f7dbb3b1.js"><link rel="prefetch" href="./promise_files/7.26b183c1.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/70.b3199540.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/71.d7c346c6.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/72.6afb9cd3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/73.80370c6b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/74.eec2a38b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/75.fdbda41f.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/76.c8a9acd3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/77.02560728.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/78.f3bcf134.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/79.01333f71.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/8.b6777e86.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/80.a7dfb481.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/81.29a3aa15.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/82.9039f284.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/83.e29f794c.js"><link rel="prefetch" href="./promise_files/84.9aea4d6e.js.下载"><link rel="prefetch" href="./promise_files/85.6fa07b30.js.下载"><link rel="prefetch" href="./promise_files/86.b0a530f1.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/87.a2c892ff.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/88.2c0ab353.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/89.0a6986cd.js"><link rel="prefetch" href="./promise_files/9.7231fa75.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/90.80c04201.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/91.19846beb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/92.09ef3493.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/93.8bad40d8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/94.f0810e7b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/95.3a648c4f.js"><link rel="prefetch" href="./promise_files/96.827e7cb2.js.下载"><link rel="prefetch" href="./promise_files/97.cc180b8f.js.下载"><link rel="prefetch" href="./promise_files/98.d2138442.js.下载"><link rel="prefetch" href="./promise_files/99.7e99e846.js.下载">
+    <link rel="stylesheet" href="./promise_files/0.styles.a3a6df6c.css">
+  <style type="text/css">.medium-zoom-overlay{position:fixed;top:0;right:0;bottom:0;left:0;opacity:0;transition:opacity .3s;will-change:opacity}.medium-zoom--opened .medium-zoom-overlay{cursor:pointer;cursor:zoom-out;opacity:1}.medium-zoom-image{cursor:pointer;cursor:zoom-in;transition:transform .3s cubic-bezier(.2,0,.2,1)!important}.medium-zoom-image--hidden{visibility:hidden}.medium-zoom-image--opened{position:relative;cursor:pointer;cursor:zoom-out;will-change:transform}</style><script charset="utf-8" src="./promise_files/119.94fe014a.js.下载"></script><script charset="utf-8" src="./promise_files/1.d83c2af0.js.下载"></script><script charset="utf-8" src="./promise_files/13.57028e74.js.下载"></script><script charset="utf-8" src="./promise_files/14.043c3e8a.js.下载"></script><script charset="utf-8" src="./promise_files/104.1731bbb1.js.下载"></script><script charset="utf-8" src="./promise_files/105.710b118c.js.下载"></script><script charset="utf-8" src="./promise_files/85.6fa07b30.js.下载"></script><script charset="utf-8" src="./promise_files/7.26b183c1.js.下载"></script><script charset="utf-8" src="./promise_files/3.f5ea6e07.js.下载"></script><script charset="utf-8" src="./promise_files/9.7231fa75.js.下载"></script><script charset="utf-8" src="./promise_files/106.b955d37d.js.下载"></script><script charset="utf-8" src="./promise_files/107.6f79a916.js.下载"></script><script charset="utf-8" src="./promise_files/108.34ee5a8e.js.下载"></script><script charset="utf-8" src="./promise_files/109.f6c05e4d.js.下载"></script><script charset="utf-8" src="./promise_files/110.a375ddec.js.下载"></script><script charset="utf-8" src="./promise_files/96.827e7cb2.js.下载"></script><script charset="utf-8" src="./promise_files/103.bfef2896.js.下载"></script><script charset="utf-8" src="./promise_files/97.cc180b8f.js.下载"></script><script charset="utf-8" src="./promise_files/98.d2138442.js.下载"></script><script charset="utf-8" src="./promise_files/99.7e99e846.js.下载"></script><script charset="utf-8" src="./promise_files/100.df83f687.js.下载"></script><script charset="utf-8" src="./promise_files/101.3986f029.js.下载"></script><script charset="utf-8" src="./promise_files/102.1468be32.js.下载"></script><script charset="utf-8" src="./promise_files/111.bcc5c187.js.下载"></script><script charset="utf-8" src="./promise_files/112.afcfef56.js.下载"></script><script charset="utf-8" src="./promise_files/113.2e7c6e37.js.下载"></script><script charset="utf-8" src="./promise_files/114.9cfdb334.js.下载"></script><script charset="utf-8" src="./promise_files/115.063815ec.js.下载"></script><script charset="utf-8" src="./promise_files/84.9aea4d6e.js.下载"></script><script charset="utf-8" src="./promise_files/86.b0a530f1.js.下载"></script><meta name="description" content="前端面试指南，前端面试题整理，按模块分类整理总结，打造最全面的前端面试题"><meta name="theme-color" content="#3eaf7c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png"><meta name="msapplication-TileColor" content="#000000"></head>
+  <body class="">
+    <div id="app"><div class="theme-container"><header class="navbar" style="background: rgb(255, 255, 255);"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="http://interview.poetries.top/" class="home-link router-link-active"><img src="./原理_files/logo.png" alt="面试指南" class="logo"> <span class="site-name can-hide">面试指南</span></a> <div class="links" style="background: rgb(255, 255, 255); max-width: 1771px;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value="" class="" placeholder=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div><a href="./index.html" class="nav-link">基础
+    </a></div></div><div class="nav-item"><div><a href="./进阶.html" class="nav-link">✨进阶
+    </a></div></div><div class="nav-item"><div><a href="./精选.html" class="nav-link">👍精选
+    </a></div></div><div class="nav-item"><div><a href="./高频.html" class="nav-link">🔥高频
+    </a></div></div><div class="nav-item"><div><a href="./指南.html" class="nav-link">指南
+    </a></div></div><div class="nav-item"><div><a href="./性能.html" class="nav-link">性能
+    </a></div></div><div class="nav-item"><div><a href="./综合.html" class="nav-link">综合
+    </a></div></div><div class="nav-item"><div><a href="./vue.html" class="nav-link">原理
+    </a></div></div><div class="nav-item"><div><a href="./手写.html" class="nav-link">手写
+    </a></div></div><div class="nav-item"><div><a href="./自检.html" class="nav-link">自检
+    </a></div></div><div class="nav-item"><div><a href="./面经.html" class="nav-link">⭐面经
+    </a></div></div><div class="nav-item"><div><a href="./每日一题.html" class="nav-link">💥每日一题
+    </a></div></div><div class="nav-item"><div><a href="./设计模式.html" class="nav-link">设计模式
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/algorithm-interview/note/01-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E2%80%94%E2%80%94%E4%BB%8E0%E5%88%B01%E6%8E%8C%E6%8F%A1%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89.html" class="nav-link">
+  </a></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="拓展阅读" class="dropdown-title"><span class="title">拓展阅读</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display: none;"><li class="dropdown-item"><h4>专题</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-base-docs/compute-docs/Linux.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-mobile-docs/h5-docs/1-%E5%A4%A7%E5%8E%82%20H5%20%E5%BC%80%E5%8F%91%E6%A6%82%E8%BF%B0.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-css-inspiration-docs/css-docs/note/01-%E6%B5%8F%E8%A7%88%E5%99%A8.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/learn-vue-base/base/1-Vue%20CLI%203%20%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-react-docs/react-web-action/01-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%97%B6%E4%BB%A3.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-micro-docs/docs/01-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E8%AF%9E%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-engineering-docs/docs/npm-script.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-ts-axios-docs/ts-axios/chapter1/" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-algorithm-docs/algorithm/prepare/01-%E5%A6%82%E4%BD%95%E7%B3%BB%E7%BB%9F%E9%AB%98%E6%95%88%E5%9C%B0%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      浏览器原理
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/http-protocol/notes/base/01-HTTP%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      HTTP基础
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/webpack.html" class="nav-link">webpack
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/npm-script.html" class="nav-link">npm工作流
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/canvas.html" class="nav-link">Canvas
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/Taro.html" class="nav-link">Taro原理
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Node学习指南
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/vue-analysis/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Vue源码分析
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-blog-docs/blog-docs/javascript/-Ajax%E6%80%BB%E7%BB%93%E7%AF%87.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      日常积累
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://blog.poetries.top/archives/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      博文
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="background: rgb(255, 255, 255);"><nav class="nav-links"><div class="nav-item"><div><a href="http://interview.poetries.top/docs/base.html" class="nav-link">基础
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/simply.html" class="nav-link">✨进阶
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/excellent-docs/1-HTML%E6%A8%A1%E5%9D%97.html" class="nav-link">👍精选
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/excellent.html" class="nav-link">🔥高频
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/guide.html" class="nav-link">指南
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/performance.html" class="nav-link">性能
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/detail-expain.html" class="nav-link">综合
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/principle-docs/comprehensive/01-%E8%99%9A%E6%8B%9FDOM%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html" class="nav-link">原理
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/handwritten.html" class="nav-link">手写
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/qa/1-%E5%89%8D%E7%AB%AF100%E9%A2%98%E8%87%AA%E6%A3%80.html" class="nav-link">自检
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/interview-exp/%E5%89%8D%E7%AB%AF%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB.html" class="nav-link">⭐面经
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/days/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98.html" class="nav-link">💥每日一题
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/design-pattern.html" class="nav-link">设计模式
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/algorithm-interview/note/01-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E2%80%94%E2%80%94%E4%BB%8E0%E5%88%B01%E6%8E%8C%E6%8F%A1%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89.html" class="nav-link">
+  </a></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="拓展阅读" class="dropdown-title"><span class="title">拓展阅读</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display: none;"><li class="dropdown-item"><h4>专题</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-base-docs/compute-docs/Linux.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-mobile-docs/h5-docs/1-%E5%A4%A7%E5%8E%82%20H5%20%E5%BC%80%E5%8F%91%E6%A6%82%E8%BF%B0.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-css-inspiration-docs/css-docs/note/01-%E6%B5%8F%E8%A7%88%E5%99%A8.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/learn-vue-base/base/1-Vue%20CLI%203%20%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-react-docs/react-web-action/01-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%97%B6%E4%BB%A3.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-micro-docs/docs/01-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E8%AF%9E%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-engineering-docs/docs/npm-script.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-ts-axios-docs/ts-axios/chapter1/" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-algorithm-docs/algorithm/prepare/01-%E5%A6%82%E4%BD%95%E7%B3%BB%E7%BB%9F%E9%AB%98%E6%95%88%E5%9C%B0%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      浏览器原理
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/http-protocol/notes/base/01-HTTP%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      HTTP基础
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/webpack.html" class="nav-link">webpack
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/npm-script.html" class="nav-link">npm工作流
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/canvas.html" class="nav-link">Canvas
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/Taro.html" class="nav-link">Taro原理
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Node学习指南
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/vue-analysis/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Vue源码分析
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-blog-docs/blog-docs/javascript/-Ajax%E6%80%BB%E7%BB%93%E7%AF%87.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      日常积累
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://blog.poetries.top/archives/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      博文
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li></ul></div></div> <!----></nav> <div style="padding-left:1.5rem;"><div class="qr"><img src="./promise_files/qr.ee193d28.jpg" alt="poetries" width="120" height="120" loading="lazy"> <p class="we-intro">
+    关注公众号，获取更多资讯
+  </p></div></div>
+  <ul class="sidebar-links"><li><section class="sidebar-group depth-0">
+    <p class="sidebar-heading"><span>Vue</span> <!----></p> 
+    <ul class="sidebar-links sidebar-group-items"><li>
+      <a href="./vue.html" class="sidebar-link">从源码解读Vue生命周期</a></li>
+      <li><a href="./组件的本质.html" class="sidebar-link">组件的本质</a></li>
+      <li><a href="./组件设计.html" class="sidebar-link">有状态组件的设计</a></li>
+      <li><a href="./设计vnode.html" class="sidebar-link">设计 VNode</a></li>
+      <li><a href="./vnode的h函数.html" class="sidebar-link">辅助创建 VNode 的 h 函数</a></li>
+      <li><a href="./自定义渲染.html" class="sidebar-link">自定义渲染器和异步渲染</a></li>
+      <li><a href="./渲染器的挂载.html" class="sidebar-link">渲染器之挂载</a></li>
+      <li><a href="./渲染diff.html" class="sidebar-link">渲染器的核心 Diff 算法</a></li>
+      <li><a href="./渲染器patch.html" class="sidebar-link">渲染器之patch</a></li>
+      <li><a href="./vue响应式.html" class="sidebar-link">图解 Vue 响应式原理</a></li>
+      <li><a href="./vue异步更新.html" class="sidebar-link">图解 Vue 异步更新</a></li>
+      <li><a href="./vue运行机制.html" class="sidebar-link">剖析 Vue 内部运行机制</a></li>
+      <li><a href="./模拟响应式.html" class="sidebar-link">vue响应式原理模拟</a></li>
+      <li><a href="./vuex.html" class="sidebar-link">vue状态管理之vuex</a></li>
+    </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>React</span> <!----></p> 
+      <ul class="sidebar-links sidebar-group-items">
+        <li><a href="./react.html" class="sidebar-link">React</a></li>
+        <li><a href="./dva.html" class="sidebar-link">Dva总结</a></li>
+        <li><a href="./MobX.html" class="sidebar-link">MobX总结</a></li>
+        <li><a href="./redux.html" class="sidebar-link">浅析redux</a></li>
+        <li><a href="./redux中间件.html" class="sidebar-link">Redux之浅析中间件</a></li>
+        <li><a href="./redux源码.html" class="sidebar-link">Redux之源码分析</a></li>
+        <li><a href="./redux异步action.html" class="sidebar-link">Redux之异步Action及操作</a></li>
+      </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Webpack</span> <!----></p> 
+        <ul class="sidebar-links sidebar-group-items">
+          <li><a href="./webpack打包原理.html" class="sidebar-link">Webpack4打包机制原理解析</a></li>
+          <li><a href="./热更新.html" class="sidebar-link">webpack中的HMR热更新原理剖析</a></li>
+          <li><a href="./webpack4原理.html" class="sidebar-link">从源码窥探Webpack4.x原理</a></li>
+          <li><a href="./实现webpack打包.html" class="sidebar-link">实现webpack小型打包工具</a></li>
+          <li><a href="./babel原理.html" class="sidebar-link">Babel原理及其使用</a></li>
+        </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>综合</span> <!----></p>
+           <ul class="sidebar-links sidebar-group-items">
+             <li><a href="./虚拟dom原理.html" class="active sidebar-link">虚拟DOM原理分析</a></li>
+             <li><a href="./settimeout指南.html" class="active sidebar-link">setTimeout</a></li>
+             <li class="sidebar-sub-header"><a href="./promise.html" class="sidebar-link">浅析Promise原理</a></li>
+        <a href="./浏览器如何渲染.html" class="sidebar-link">浏览器渲染原理</a></li>
+        <li><a href="./mvvm.html" class="sidebar-link">前端面试之MVVM浅析</a></li>
+        <li><a href="./组件化.html" class="sidebar-link">前端面试之组件化</a></li>
+        <li><a href="./虚拟dom1.html" class="sidebar-link">虚拟DOM（一）</a></li>
+        <li><a href="./虚拟dom2.html" class="sidebar-link">虚拟DOM（二）</a></li>
+        <li><a href="./performance.html" class="sidebar-link">前端性能之Performance</a></li>
+      </ul></section></li></ul> 
+ </aside> <main class="page"> <div id="container" class="theme-default-content pay-content"><div class="content__default"><h2 id="一、promise基础用法"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#%E4%B8%80%E3%80%81promise%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95" class="header-anchor">#</a> 一、Promise基础用法</h2> <h3 id="_1-1-基本用法"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_1-1-%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95" class="header-anchor">#</a> 1.1 基本用法</h3> <div class="language- extra-class"><pre class="language-text"><code>new Promise(function(resolve, reject) {
+    //待处理的异步逻辑
+    //处理结束后，调用resolve或reject方法
+})
+</code></pre></div><blockquote><ul><li>新建一个<code>promise</code>很简单，只需要<code>new</code>一个<code>promise</code>对象即可。所以<code>promise</code>本质上就是一个函数，它接受一个函数作为参数，并且会返回<code>promise</code>对象，这就给链式调用提供了基础</li> <li>其实<code>Promise</code>函数的使命，就是构建出它的实例，并且负责帮我们管理这些实例。而这些实例有以下三种状态：</li></ul></blockquote> <ul><li><code>pending</code>: 初始状态，位履行或拒绝</li> <li><code>fulfilled</code>: 意味着操作成功完成</li> <li><code>rejected</code>: 意味着操作失败</li></ul> <blockquote><p><code>pending</code> 状态的 <code>Promise</code>对象可能以 <code>fulfilled</code>状态返回了一个值，也可能被某种理由（异常信息）拒绝（<code>reject</code>）了。当其中任一种情况出现时，<code>Promise</code> 对象的 <code>then</code> 方法绑定的处理方法（handlers）就会被调用，then方法分别指定了<code>resolve</code>方法和<code>reject</code>方法的回调函数</p></blockquote> <p><img src="./promise_files/promises.png" alt="img" class="medium-zoom-image"></p> <div class="language- extra-class"><pre class="language-text"><code>var promise = new Promise(function(resolve, reject) {
+  if (/* 异步操作成功 */){
+    resolve(value);
+  } else {
+    reject(error);
+  }
+});
+promise.then(function(value) {
+  // 如果调用了resolve方法，执行此函数
+}, function(value) {
+  // 如果调用了reject方法，执行此函数
+});
+</code></pre></div><blockquote><p>上述代码很清晰的展示了<code>promise</code>对象运行的机制。下面再看一个示例：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var getJSON = function(url) {
+  var promise = new Promise(function(resolve, reject){
+    var client = new XMLHttpRequest();
+    client.open("GET", url);
+    client.onreadystatechange = handler;
+    client.responseType = "json";
+    client.setRequestHeader("Accept", "application/json");
+    client.send();
+    function handler() {
+      if (this.status === 200) { 
+              resolve(this.response); 
+          } else { 
+              reject(new Error(this.statusText)); 
+          }
+    };
+  });
+  return promise;
+};
+getJSON("/posts.json").then(function(json) {
+  console.log('Contents: ' + json);
+}, function(error) {
+  console.error('出错了', error);
+});
+</code></pre></div><blockquote><p>上面代码中，<code>resolve</code>方法和<code>reject</code>方法调用时，都带有参数。它们的参数会被传递给回调函数。<code>reject</code>方法的参数通常是<code>Error</code>对象的实例，而<code>resolve</code>方法的参数除了正常的值以外，还可能是另一个<code>Promise</code>实例，比如像下面这样。</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var p1 = new Promise(function(resolve, reject){
+  // ... some code
+});
+var p2 = new Promise(function(resolve, reject){
+  // ... some code
+  resolve(p1);
+})
+</code></pre></div><blockquote><p>上面代码中，<code>p1</code>和<code>p2</code>都是<code>Promise</code>的实例，但是<code>p2</code>的<code>resolve</code>方法将<code>p1</code>作为参数，这时<code>p1</code>的状态就会传递给<code>p2</code>。如果调用的时候，<code>p1</code>的状态是<code>pending</code>，那么<code>p2</code>的回调函数就会等待<code>p1</code>的状态改变；如果<code>p1</code>的状态已经是<code>fulfilled</code>或者<code>rejected</code>，那么<code>p2</code>的回调函数将会立刻执行</p></blockquote> <h3 id="_1-2-promise捕获错误"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_1-2-promise%E6%8D%95%E8%8E%B7%E9%94%99%E8%AF%AF" class="header-anchor">#</a> 1.2 promise捕获错误</h3> <blockquote><p><code>Promise.prototype.catch</code>方法是<code>Promise.prototype.then(null, rejection)</code>的别名，用于指定发生错误时的回调函数</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>getJSON("/visa.json").then(function(result) {
+  // some code
+}).catch(function(error) {
+  // 处理前一个回调函数运行时发生的错误
+  console.log('出错啦！', error);
+});
+</code></pre></div><blockquote><p><code>Promise</code>对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。也就是说，错误总是会被下一个<code>catch</code>语句捕获</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>getJSON("/visa.json").then(function(json) {
+  return json.name;
+}).then(function(name) {
+  // proceed
+}).catch(function(error) {
+    //处理前面任一个then函数抛出的错误
+});
+</code></pre></div><h3 id="_1-3-常用的promise方法"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_1-3-%E5%B8%B8%E7%94%A8%E7%9A%84promise%E6%96%B9%E6%B3%95" class="header-anchor">#</a> 1.3 常用的promise方法</h3> <p><strong>Promise.all方法</strong></p> <blockquote><p><code>Promise.all</code>方法用于将多个<code>Promise</code>实例，包装成一个新的<code>Promise</code>实例</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var p = Promise.all([p1,p2,p3]);
+</code></pre></div><ul><li>上面代码中，<code>Promise.all</code>方法接受一个数组作为参数，<code>p1</code>、<code>p2</code>、<code>p3</code>都是<code>Promise</code>对象的实例。（<code>Promise.all</code>方法的参数不一定是数组，但是必须具有<code>iterator</code>接口，且返回的每个成员都是<code>Promise</code>实例。）</li></ul> <blockquote><p><code>p</code>的状态由<code>p1</code>、<code>p2</code>、<code>p3</code>决定，分成两种情况</p></blockquote> <ul><li>只有<code>p1</code>、<code>p2</code>、<code>p3</code>的状态都变成<code>fulfilled</code>，<code>p</code>的状态才会变成<code>fulfilled</code>，此时<code>p1</code>、<code>p2</code>、<code>p3</code>的返回值组成一个数组，传递给<code>p</code>的回调函数</li> <li>只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个被<code>rejected</code>，<code>p</code>的状态就变成<code>rejected</code>，此时第一个被<code>reject</code>的实例的返回值，会传递给p的回调函数</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// 生成一个Promise对象的数组
+var promises = [2, 3, 5, 7, 11, 13].map(function(id){
+  return getJSON("/get/addr" + id + ".json");
+});
+Promise.all(promises).then(function(posts) {
+  // ...  
+}).catch(function(reason){
+  // ...
+});
+</code></pre></div><p><strong>Promise.race方法</strong></p> <blockquote><p><code>Promise.race</code>方法同样是将多个<code>Promise</code>实例，包装成一个新的<code>Promise</code>实例。</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var p = Promise.race([p1,p2,p3]);
+</code></pre></div><blockquote><p>上面代码中，只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的Promise实例的返回值，就传递给p的返回值</p></blockquote> <ul><li>如果<code>Promise.all</code>方法和<code>Promise.race</code>方法的参数，不是<code>Promise</code>实例，就会先调用下面讲到的<code>Promise.resolve</code>方法，将参数转为<code>Promise</code>实例，再进一步处理</li></ul> <p><strong>Promise.resolve</strong></p> <blockquote><p>有时需要将现有对象转为<code>Promise</code>对象，<code>Promise.resolve</code>方法就起到这个作用</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>var jsPromise = Promise.resolve($.ajax('/whatever.json'));
+</code></pre></div><blockquote><p>上面代码将<code>jQuery</code>生成<code>deferred</code>对象，转为一个新的<code>ES6</code>的<code>Promise</code>对象</p></blockquote> <ul><li>如果<code>Promise.resolve</code>方法的参数，不是具有<code>then</code>方法的对象（又称<code>thenable</code>对象），则返回一个新的<code>Promise</code>对象，且它的状态为<code>fulfilled</code>。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>var p = Promise.resolve('Hello');
+p.then(function (s){
+  console.log(s)
+});
+// Hello
+</code></pre></div><ul><li>上面代码生成一个新的<code>Promise</code>对象的实例<code>p</code>，它的状态为<code>fulfilled</code>，所以回调函数会立即执行，<code>Promise.resolve</code>方法的参数就是回调函数的参数</li> <li>如果<code>Promise.resolve</code>方法的参数是一个<code>Promise</code>对象的实例，则会被原封不动地返回</li> <li><code>Promise.reject(reason)</code>方法也会返回一个新的<code>Promise</code>实例，该实例的状态为<code>rejected</code>。<code>Promise.reject</code>方法的参数<code>reason</code>，会被传递给实例的回调函数</li></ul> <div class="language- extra-class"><pre class="language-text"><code>var p = Promise.reject('出错啦');
+p.then(null, function (error){
+  console.log(error)
+});
+// 出错了
+</code></pre></div><h3 id="_1-4-async-await简化写法"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_1-4-async-await%E7%AE%80%E5%8C%96%E5%86%99%E6%B3%95" class="header-anchor">#</a> 1.4 Async/await简化写法</h3> <div class="language- extra-class"><pre class="language-text"><code>function getDataAsync (url) {
+    return new Promise((resolve, reject) =&gt; {
+        setTimeout(() =&gt; {
+            var res = {
+                url: url,
+                data: Math.random()
+            }
+            resolve(res)
+        }, 1000)
+    })
+}
+async function getData () {
+    var res1 = await getDataAsync('/page/1?param=123')
+    console.log(res1)
+    var res2 = await getDataAsync(`/page/2?param=${res1.data}`)
+    console.log(res2)
+    var res3 = await getDataAsync(`/page/2?param=${res2.data}`)
+    console.log(res3)
+}
+</code></pre></div><blockquote><p><code>async/await</code> 是基于 <code>Promise</code> 的，因为使用 <code>async</code> 修饰的方法最终返回一个 <code>Promise</code>， 实际上，<code>async/await</code> 可以看做是使用 <code>Generator</code> 函数处理异步的语法糖，我们来看看如何使用 <code>Generator</code> 函数处理异步</p></blockquote> <h3 id="_1-5-generator"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_1-5-generator" class="header-anchor">#</a> 1.5 Generator</h3> <p>首先异步函数依然是：</p> <div class="language- extra-class"><pre class="language-text"><code>function getDataAsync (url) {
+    return new Promise((resolve, reject) =&gt; {
+        setTimeout(() =&gt; {
+            var res = {
+                url: url,
+                data: Math.random()
+            }
+            resolve(res)
+        }, 1000)
+    })
+}
+</code></pre></div><blockquote><p>使用 <code>Generator</code> 函数可以这样写</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function * getData () {
+    var res1 = yield getDataAsync('/page/1?param=123')
+    console.log(res1)
+    var res2 = yield getDataAsync(`/page/2?param=${res1.data}`)
+    console.log(res2)
+    var res3 = yield getDataAsync(`/page/2?param=${res2.data}`)
+    console.log(res3))
+}
+</code></pre></div><p>然后我们这样逐步执行</p> <div class="language- extra-class"><pre class="language-text"><code>var g = getData()
+g.next().value.then(res1 =&gt; {
+    g.next(res1).value.then(res2 =&gt; {
+        g.next(res2).value.then(() =&gt; {
+            g.next()
+        })
+    })
+})
+</code></pre></div><blockquote><p>上面的代码，我们逐步调用遍历器的 <code>next()</code> 方法，由于每一个 <code>next()</code> 方法返回值的 <code>value</code> 属性为一个 <code>Promise</code> 对象，所以我们为其添加 <code>then</code> 方法， 在 <code>then</code>方法里面接着运行 <code>next</code> 方法挪移遍历器指针，直到 <code>Generator</code> 函数运行完成，实际上，这个过程我们不必手动完成，可以封装成一个简单的执行器</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function run (gen) {
+    var g = gen()
+
+    function next (data) {
+        var res = g.next(data)
+        if (res.done) return res.value
+        res.value.then((data) =&gt; {
+            next(data)
+        })
+    }
+
+    next()
+
+}
+</code></pre></div><blockquote><p><code>run</code>方法用来自动运行异步的 <code>Generator</code> 函数，其实就是一个递归的过程调用的过程。这样我们就不必手动执行 <code>Generator</code> 函数了。 有了 <code>run</code> 方法，我们只需要这样运行 getData 方法</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>run(getData)
+</code></pre></div><blockquote><p>这样，我们就可以把异步操作封装到 <code>Generator</code> 函数内部，使用 <code>run</code> 方法作为 <code>Generator</code> 函数的自执行器，来处理异步。其实我们不难发现， <code>async/await</code> 方法相比于 <code>Generator</code> 处理异步的方式，有很多相似的地方，只不过 <code>async/await</code> 在语义化方面更加明显，同时 <code>async/await</code> 不需要我们手写执行器，其内部已经帮我们封装好了，这就是为什么说 <code>async/await</code> 是 <code>Generator</code> 函数处理异步的语法糖了</p></blockquote> <h2 id="二、promise实现原理剖析"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#%E4%BA%8C%E3%80%81promise%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90" class="header-anchor">#</a> 二、Promise实现原理剖析</h2> <h3 id="_2-1-promise标准"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-1-promise%E6%A0%87%E5%87%86" class="header-anchor">#</a> 2.1 Promise标准</h3> <ul><li><code>Promise</code> 规范有很多，如<code>Promise/A</code>，<code>Promise/B</code>，<code>Promise/D</code>以及 <code>Promise/A</code> 的升级版 <code>Promise/A+</code>。<code>ES6</code>中采用了 <code>Promise/A+</code> 规范</li></ul> <p>中文版规范: <a href="http://www.ituring.com.cn/article/66566" target="_blank" rel="noopener noreferrer">Promises/A+规范(中文)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>Promise标准解读</strong></p> <ul><li>一个<code>promise</code>的当前状态只能是<code>pending</code>、<code>fulfilled</code>和<code>rejected</code>三种之一。状态改变只能是<code>pending</code>到<code>fulfilled</code>或者<code>pending</code>到<code>rejected</code>。状态改变不可逆</li> <li><code>promise</code>的<code>then</code>方法接收两个可选参数，表示该<code>promise</code>状态改变时的回调(<code>promise.then(onFulfilled, onRejected)</code>)。<code>then</code>方法返回一个<code>promise</code>。<code>then</code> 方法可以被同一个 <code>promise</code> 调用多次</li></ul> <h3 id="_2-2-实现promise"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-2-%E5%AE%9E%E7%8E%B0promise" class="header-anchor">#</a> 2.2 实现Promise</h3> <p><strong>构造函数</strong></p> <div class="language- extra-class"><pre class="language-text"><code>function Promise(resolver) {}
+</code></pre></div><p><strong>原型方法</strong></p> <div class="language- extra-class"><pre class="language-text"><code>Promise.prototype.then = function() {}
+Promise.prototype.catch = function() {}
+</code></pre></div><p><strong>静态方法</strong></p> <div class="language- extra-class"><pre class="language-text"><code>Promise.resolve = function() {}
+Promise.reject = function() {}
+Promise.all = function() {}
+Promise.race = function() {}
+</code></pre></div><h3 id="_2-3-极简promise雏形"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-3-%E6%9E%81%E7%AE%80promise%E9%9B%8F%E5%BD%A2" class="header-anchor">#</a> 2.3 极简promise雏形</h3> <div class="language- extra-class"><pre class="language-text"><code>function Promise(fn) {
+    var value = null,
+        callbacks = [];  //callbacks为数组，因为可能同时有很多个回调
+    this.then = function (onFulfilled) {
+        callbacks.push(onFulfilled);
+    };
+    function resolve(value) {
+        callbacks.forEach(function (callback) {
+            callback(value);
+        });
+    }
+    fn(resolve);
+}
+</code></pre></div><p><strong>大致的逻辑是这样的</strong></p> <ul><li>调用<code>then</code>方法，将想要在<code>Promise</code>异步操作成功时执行的回调放入<code>callbacks</code>队列，其实也就是注册回调函数，可以向观察者模式方向思考</li> <li>创建<code>Promise</code>实例时传入的函数会被赋予一个函数类型的参数，即<code>resolve</code>，它接收一个参数<code>value</code>，代表异步操作返回的结果，当一步操作执行成功后，用户会调用<code>resolve</code>方法，这时候其实真正执行的操作是将<code>callbacks</code>队列中的回调一一执行</li></ul> <div class="language- extra-class"><pre class="language-text"><code>//例1
+function getUserId() {
+    return new Promise(function(resolve) {
+        //异步请求
+        http.get(url, function(results) {
+            resolve(results.id)
+        })
+    })
+}
+getUserId().then(function(id) {
+    //一些处理
+})
+// 结合例子1分析
+
+// fn 就是getUserId函数
+function Promise(fn) {
+    var value = null,
+        callbacks = [];  //callbacks为数组，因为可能同时有很多个回调
+    
+    // 当用户调用getUserId().then的时候开始注册传进来的回调函数
+    // onFulfilled就是例子中的function(id){}
+    // 把then的回调函数收集起来 在resolve的时候调用
+    this.then = function (onFulfilled) {
+        callbacks.push(onFulfilled);
+    };
+    
+    // value是fn函数执行后返回的值
+    function resolve(value) {
+        // callbacks是传给then的回调函数就是例子中的function(id){}
+        // 遍历用户通过then传递进来的回调函数把resolve成功的结果返回给then调用即then(function(data){ console.log(data) }) 这里的data就是通过这里调用返回
+        callbacks.forEach(function (callback) {
+            callback(value);
+        });
+    }
+    
+    //执行fn函数即getUserId()并且传入函数参数resolve 当fn执行完成返回的值传递给resolve函数
+    fn(resolve);
+}
+</code></pre></div><blockquote><p>结合例1中的代码来看，首先<code>new Promise</code>时，传给<code>promise</code>的函数发送异步请求，接着调用<code>promise</code>对象的<code>then</code>属性，注册请求成功的回调函数，然后当异步请求发送成功时，调用<code>resolve(results.id)</code>方法, 该方法执行<code>then</code>方法注册的回调数组</p></blockquote> <ul><li><code>then</code>方法应该能够链式调用，但是上面的最基础简单的版本显然无法支持链式调用。想让<code>then</code>方法支持链式调用，其实也是很简单的</li></ul> <div class="language- extra-class"><pre class="language-text"><code>this.then = function (onFulfilled) {
+    callbacks.push(onFulfilled);
+    return this;
+};
+</code></pre></div><blockquote><p>只要简单一句话就可以实现类似下面的链式调用</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// 例2
+getUserId().then(function (id) {
+    // 一些处理
+}).then(function (id) {
+    // 一些处理
+});
+</code></pre></div><h3 id="_2-4-加入延时机制"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-4-%E5%8A%A0%E5%85%A5%E5%BB%B6%E6%97%B6%E6%9C%BA%E5%88%B6" class="header-anchor">#</a> 2.4 加入延时机制</h3> <blockquote><p>上述代码可能还存在一个问题：如果在<code>then</code>方法注册回调之前，<code>resolve</code>函数就执行了，怎么办？比如<code>promise</code>内部的函数是同步函数</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// 例3
+function getUserId() {
+    return new Promise(function (resolve) {
+        resolve(9876);
+    });
+}
+getUserId().then(function (id) {
+    // 一些处理
+});
+</code></pre></div><blockquote><p>这显然是不允许的，<code>Promises/A+</code>规范明确要求回调需要通过异步方式执行，用以保证一致可靠的执行顺序。因此我们要加入一些处理，保证在<code>resolve</code>执行之前，<code>then</code>方法已经注册完所有的回调。我们可以这样改造下<code>resolve</code>函数:</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function resolve(value) {
+    setTimeout(function() {
+        callbacks.forEach(function (callback) {
+            callback(value);
+        });
+    }, 0)
+}
+</code></pre></div><blockquote><p>上述代码的思路也很简单，就是通过<code>setTimeout</code>机制，将<code>resolve</code>中执行回调的逻辑放置到<code>JS</code>任务队列末尾，以保证在<code>resolve</code>执行时，<code>then</code>方法的回调函数已经注册完成</p></blockquote> <ul><li>但是，这样好像还存在一个问题，可以细想一下：如果<code>Promise</code>异步操作已经成功，这时，在异步操作成功之前注册的回调都会执行，但是在<code>Promise</code>异步操作成功这之后调用的<code>then</code>注册的回调就再也不会执行了，这显然不是我们想要的</li></ul> <h3 id="_2-5-加入状态"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-5-%E5%8A%A0%E5%85%A5%E7%8A%B6%E6%80%81" class="header-anchor">#</a> 2.5 加入状态</h3> <p>我们必须加入状态机制，也就是大家熟知的<code>pending</code>、<code>fulfilled</code>、<code>rejected</code></p> <blockquote><p><code>Promises/A+</code>规范中的<code>2.1 Promise States</code>中明确规定了，<code>pending</code>可以转化为<code>fulfilled</code>或<code>rejected</code>并且只能转化一次，也就是说如果<code>pending</code>转化到<code>fulfilled</code>状态，那么就不能再转化到r<code>ejected</code>。并且<code>fulfilled</code>和<code>rejected</code>状态只能由<code>pending</code>转化而来，两者之间不能互相转换</p></blockquote> <p><img src="./promise_files/promiseState.png" alt="img" class="medium-zoom-image"></p> <div class="language- extra-class"><pre class="language-text"><code>//改进后的代码是这样的：
+
+function Promise(fn) {
+    var state = 'pending',
+        value = null,
+        callbacks = [];
+    this.then = function (onFulfilled) {
+        if (state === 'pending') {
+            callbacks.push(onFulfilled);
+            return this;
+        }
+        onFulfilled(value);
+        return this;
+    };
+    function resolve(newValue) {
+        value = newValue;
+        state = 'fulfilled';
+        setTimeout(function () {
+            callbacks.forEach(function (callback) {
+                callback(value);
+            });
+        }, 0);
+    }
+    fn(resolve);
+}
+</code></pre></div><blockquote><p>上述代码的思路是这样的：<code>resolve</code>执行时，会将状态设置为<code>fulfilled</code>，在此之后调用<code>then</code>添加的新回调，都会立即执行</p></blockquote> <h3 id="_2-6-链式promise"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-6-%E9%93%BE%E5%BC%8Fpromise" class="header-anchor">#</a> 2.6 链式Promise</h3> <blockquote><p>如果用户在<code>then</code>函数里面注册的仍然是一个<code>Promise</code>，该如何解决？比如下面的例4</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// 例4
+getUserId()
+    .then(getUserJobById)
+    .then(function (job) {
+        // 对job的处理
+    });
+function getUserJobById(id) {
+    return new Promise(function (resolve) {
+        http.get(baseUrl + id, function(job) {
+            resolve(job);
+        });
+    });
+}
+</code></pre></div><ul><li>这种场景相信用过<code>promise</code>的人都知道会有很多，那么类似这种就是所谓的链式<code>Promise</code></li> <li>链式<code>Promise</code>是指在当前<code>promise</code>达到<code>fulfilled</code>状态后，即开始进行下一个<code>promise</code>（后邻<code>promise</code>）。那么我们如何衔接当前<code>promise</code>和后邻<code>promise</code>呢？（这是这里的难点</li> <li>只要在<code>then</code>方法里面<code>return</code>一个<code>promise</code>就好啦。<code>Promises/A+</code>规范中的<code>2.2.7</code>就是这样</li></ul> <blockquote><p>下面来看看这段暗藏玄机的<code>then</code>方法和<code>resolve</code>方法改造代码</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function Promise(fn) {
+    var state = 'pending',
+        value = null,
+        callbacks = [];
+    this.then = function (onFulfilled) {
+        return new Promise(function (resolve) {
+            handle({
+                onFulfilled: onFulfilled || null,
+                resolve: resolve
+            });
+        });
+    };
+    function handle(callback) {
+        if (state === 'pending') {
+            callbacks.push(callback);
+            return;
+        }
+        //如果then中没有传递任何东西
+        if(!callback.onFulfilled) {
+            callback.resolve(value);
+            return;
+        }
+        var ret = callback.onFulfilled(value);
+        callback.resolve(ret);
+    }
+    
+    function resolve(newValue) {
+        if (newValue &amp;&amp; (typeof newValue === 'object' || typeof newValue === 'function')) {
+            var then = newValue.then;
+            if (typeof then === 'function') {
+                then.call(newValue, resolve);
+                return;
+            }
+        }
+        state = 'fulfilled';
+        value = newValue;
+        setTimeout(function () {
+            callbacks.forEach(function (callback) {
+                handle(callback);
+            });
+        }, 0);
+    }
+    fn(resolve);
+}
+</code></pre></div><blockquote><p>我们结合例4的代码，分析下上面的代码逻辑，为了方便阅读，我把例4的代码贴在这里</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// 例4
+getUserId()
+    .then(getUserJobById)
+    .then(function (job) {
+        // 对job的处理
+    });
+function getUserJobById(id) {
+    return new Promise(function (resolve) {
+        http.get(baseUrl + id, function(job) {
+            resolve(job);
+        });
+    });
+}
+</code></pre></div><ul><li><code>then</code>方法中，创建并返回了新的<code>Promise</code>实例，这是串行<code>Promis</code>e的基础，并且支持链式调用</li> <li><code>handle</code>方法是<code>promise</code>内部的方法。<code>then</code>方法传入的形参<code>onFulfilled</code>以及创建新<code>Promise</code>实例时传入的<code>resolve</code>均被<code>push</code>到当前<code>promise</code>的<code>callbacks</code>队列中，这是衔接当前<code>promise</code>和后邻<code>promise</code>的关键所在</li> <li><code>getUserId</code>生成的<code>promise</code>（简称<code>getUserId promise</code>）异步操作成功，执行其内部方法<code>resolve</code>，传入的参数正是异步操作的结果<code>id</code></li> <li>调用<code>handle</code>方法处理<code>callbacks</code>队列中的回调：<code>getUserJobById</code>方法，生成新的<code>promise</code>（g<code>etUserJobById promise</code>）</li> <li>执行之前由<code>getUserId promise</code>的<code>then</code>方法生成的新<code>promise</code>(称为<code>bridge promise</code>)的<code>resolve</code>方法，传入参数为<code>getUserJobById promise</code>。这种情况下，会将该<code>resolve</code>方法传入<code>getUserJobById promise</code>的<code>then</code>方法中，并直接返回</li> <li>在<code>getUserJobById promise</code>异步操作成功时，执行其<code>callbacks</code>中的回调：<code>getUserId bridge promise</code>中的<code>resolve</code>方法</li> <li>最后执行<code>getUserId bridge promise</code>的后邻<code>promise</code>的<code>callbacks</code>中的回调</li></ul> <h3 id="_2-7-失败处理"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-7-%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86" class="header-anchor">#</a> 2.7 失败处理</h3> <blockquote><p>在异步操作失败时，标记其状态为<code>rejected</code>，并执行注册的失败回调</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>//例5
+function getUserId() {
+    return new Promise(function(resolve) {
+        //异步请求
+        http.get(url, function(error, results) {
+            if (error) {
+                reject(error);
+            }
+            resolve(results.id)
+        })
+    })
+}
+getUserId().then(function(id) {
+    //一些处理
+}, function(error) {
+    console.log(error)
+})
+</code></pre></div><blockquote><p>有了之前处理<code>fulfilled</code>状态的经验，支持错误处理变得很容易,只需要在注册回调、处理状态变更上都要加入新的逻辑</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function Promise(fn) {
+    var state = 'pending',
+        value = null,
+        callbacks = [];
+    this.then = function (onFulfilled, onRejected) {
+        return new Promise(function (resolve, reject) {
+            handle({
+                onFulfilled: onFulfilled || null,
+                onRejected: onRejected || null,
+                resolve: resolve,
+                reject: reject
+            });
+        });
+    };
+    function handle(callback) {
+        if (state === 'pending') {
+            callbacks.push(callback);
+            return;
+        }
+        var cb = state === 'fulfilled' ? callback.onFulfilled : callback.onRejected,
+            ret;
+        if (cb === null) {
+            cb = state === 'fulfilled' ? callback.resolve : callback.reject;
+            cb(value);
+            return;
+        }
+        ret = cb(value);
+        callback.resolve(ret);
+    }
+    function resolve(newValue) {
+        if (newValue &amp;&amp; (typeof newValue === 'object' || typeof newValue === 'function')) {
+            var then = newValue.then;
+            if (typeof then === 'function') {
+                then.call(newValue, resolve, reject);
+                return;
+            }
+        }
+        state = 'fulfilled';
+        value = newValue;
+        execute();
+    }
+    function reject(reason) {
+        state = 'rejected';
+        value = reason;
+        execute();
+    }
+    function execute() {
+        setTimeout(function () {
+            callbacks.forEach(function (callback) {
+                handle(callback);
+            });
+        }, 0);
+    }
+    fn(resolve, reject);
+}
+</code></pre></div><blockquote><p>上述代码增加了新的<code>reject</code>方法，供异步操作失败时调用，同时抽出了<code>resolve</code>和<code>reject</code>共用的部分，形成<code>execute</code>方法</p></blockquote> <p>错误冒泡是上述代码已经支持，且非常实用的一个特性。在<code>handle</code>中发现没有指定异步操作失败的回调时，会直接将<code>bridge promise</code>(<code>then</code>函数返回的<code>promise</code>，后同)设为<code>rejected</code>状态，如此达成执行后续失败回调的效果。这有利于简化串行Promise的失败处理成本，因为一组异步操作往往会对应一个实际功能，失败处理方法通常是一致的</p> <div class="language- extra-class"><pre class="language-text"><code>//例6
+getUserId()
+    .then(getUserJobById)
+    .then(function (job) {
+        // 处理job
+    }, function (error) {
+        // getUserId或者getUerJobById时出现的错误
+        console.log(error);
+    });
+</code></pre></div><h3 id="_2-8-异常处理"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-8-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86" class="header-anchor">#</a> 2.8 异常处理</h3> <blockquote><p>如果在执行成功回调、失败回调时代码出错怎么办？对于这类异常，可以使用<code>try-catch</code>捕获错误，并将<code>bridge promise</code>设为<code>rejected</code>状态。<code>handle</code>方法改造如下</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function handle(callback) {
+    if (state === 'pending') {
+        callbacks.push(callback);
+        return;
+    }
+    var cb = state === 'fulfilled' ? callback.onFulfilled : callback.onRejected,
+        ret;
+    if (cb === null) {
+        cb = state === 'fulfilled' ? callback.resolve : callback.reject;
+        cb(value);
+        return;
+    }
+    try {
+        ret = cb(value);
+        callback.resolve(ret);
+    } catch (e) {
+        callback.reject(e);
+    } 
+}
+</code></pre></div><blockquote><p>如果在异步操作中，多次执行<code>resolve</code>或者<code>reject</code>会重复处理后续回调，可以通过内置一个标志位解决</p></blockquote> <h3 id="_2-9-完整实现"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-9-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0" class="header-anchor">#</a> 2.9 完整实现</h3> <div class="language- extra-class"><pre class="language-text"><code>// 三种状态
+const PENDING = "pending";
+const RESOLVED = "resolved";
+const REJECTED = "rejected";
+// promise 接收一个函数参数，该函数会立即执行
+function MyPromise(fn) {
+  let _this = this;
+  _this.currentState = PENDING;
+  _this.value = undefined;
+  // 用于保存 then 中的回调，只有当 promise
+  // 状态为 pending 时才会缓存，并且每个实例至多缓存一个
+  _this.resolvedCallbacks = [];
+  _this.rejectedCallbacks = [];
+
+  _this.resolve = function (value) {
+    if (value instanceof MyPromise) {
+      // 如果 value 是个 Promise，递归执行
+      return value.then(_this.resolve, _this.reject)
+    }
+    setTimeout(() =&gt; { // 异步执行，保证执行顺序
+      if (_this.currentState === PENDING) {
+        _this.currentState = RESOLVED;
+        _this.value = value;
+        _this.resolvedCallbacks.forEach(cb =&gt; cb());
+      }
+    })
+  };
+
+  _this.reject = function (reason) {
+    setTimeout(() =&gt; { // 异步执行，保证执行顺序
+      if (_this.currentState === PENDING) {
+        _this.currentState = REJECTED;
+        _this.value = reason;
+        _this.rejectedCallbacks.forEach(cb =&gt; cb());
+      }
+    })
+  }
+  // 用于解决以下问题
+  // new Promise(() =&gt; throw Error('error))
+  try {
+    fn(_this.resolve, _this.reject);
+  } catch (e) {
+    _this.reject(e);
+  }
+}
+
+MyPromise.prototype.then = function (onResolved, onRejected) {
+  var self = this;
+  // 规范 2.2.7，then 必须返回一个新的 promise
+  var promise2;
+  // 规范 2.2.onResolved 和 onRejected 都为可选参数
+  // 如果类型不是函数需要忽略，同时也实现了透传
+  // Promise.resolve(4).then().then((value) =&gt; console.log(value))
+  onResolved = typeof onResolved === 'function' ? onResolved : v =&gt; v;
+  onRejected = typeof onRejected === 'function' ? onRejected : r =&gt; throw r;
+
+  if (self.currentState === RESOLVED) {
+    return (promise2 = new MyPromise(function (resolve, reject) {
+      // 规范 2.2.4，保证 onFulfilled，onRjected 异步执行
+      // 所以用了 setTimeout 包裹下
+      setTimeout(function () {
+        try {
+          var x = onResolved(self.value);
+          resolutionProcedure(promise2, x, resolve, reject);
+        } catch (reason) {
+          reject(reason);
+        }
+      });
+    }));
+  }
+
+  if (self.currentState === REJECTED) {
+    return (promise2 = new MyPromise(function (resolve, reject) {
+      setTimeout(function () {
+        // 异步执行onRejected
+        try {
+          var x = onRejected(self.value);
+          resolutionProcedure(promise2, x, resolve, reject);
+        } catch (reason) {
+          reject(reason);
+        }
+      });
+    }));
+  }
+
+  if (self.currentState === PENDING) {
+    return (promise2 = new MyPromise(function (resolve, reject) {
+      self.resolvedCallbacks.push(function () {
+        // 考虑到可能会有报错，所以使用 try/catch 包裹
+        try {
+          var x = onResolved(self.value);
+          resolutionProcedure(promise2, x, resolve, reject);
+        } catch (r) {
+          reject(r);
+        }
+      });
+
+      self.rejectedCallbacks.push(function () {
+        try {
+          var x = onRejected(self.value);
+          resolutionProcedure(promise2, x, resolve, reject);
+        } catch (r) {
+          reject(r);
+        }
+      });
+    }));
+  }
+};
+// 规范 2.3
+function resolutionProcedure(promise2, x, resolve, reject) {
+  // 规范 2.3.1，x 不能和 promise2 相同，避免循环引用
+  if (promise2 === x) {
+    return reject(new TypeError("Error"));
+  }
+  // 规范 2.3.2
+  // 如果 x 为 Promise，状态为 pending 需要继续等待否则执行
+  if (x instanceof MyPromise) {
+    if (x.currentState === PENDING) {
+      x.then(function (value) {
+        // 再次调用该函数是为了确认 x resolve 的
+        // 参数是什么类型，如果是基本类型就再次 resolve
+        // 把值传给下个 then
+        resolutionProcedure(promise2, value, resolve, reject);
+      }, reject);
+    } else {
+      x.then(resolve, reject);
+    }
+    return;
+  }
+  // 规范 2.3.3.3.3
+  // reject 或者 resolve 其中一个执行过得话，忽略其他的
+  let called = false;
+  // 规范 2.3.3，判断 x 是否为对象或者函数
+  if (x !== null &amp;&amp; (typeof x === "object" || typeof x === "function")) {
+    // 规范 2.3.3.2，如果不能取出 then，就 reject
+    try {
+      // 规范 2.3.3.1
+      let then = x.then;
+      // 如果 then 是函数，调用 x.then
+      if (typeof then === "function") {
+        // 规范 2.3.3.3
+        then.call(
+          x,
+          y =&gt; {
+            if (called) return;
+            called = true;
+            // 规范 2.3.3.3.1
+            resolutionProcedure(promise2, y, resolve, reject);
+          },
+          e =&gt; {
+            if (called) return;
+            called = true;
+            reject(e);
+          }
+        );
+      } else {
+        // 规范 2.3.3.4
+        resolve(x);
+      }
+    } catch (e) {
+      if (called) return;
+      called = true;
+      reject(e);
+    }
+  } else {
+    // 规范 2.3.4，x 为基本类型
+    resolve(x);
+  }
+}
+</code></pre></div><h3 id="_2-10-小结"><a href="http://interview.poetries.top/principle-docs/comprehensive/03-%E6%B5%85%E6%9E%90Promise%E5%8E%9F%E7%90%86.html#_2-10-%E5%B0%8F%E7%BB%93" class="header-anchor">#</a> 2.10 小结</h3> <p><strong>这里一定要注意的点是</strong>：<code>promise</code>里面的<code>then</code>函数仅仅是注册了后续需要执行的代码，真正的执行是在<code>resolve</code>方法里面执行的，理清了这层，再来分析源码会省力的多</p> <blockquote><p>现在回顾下<code>Promise</code>的实现过程，其主要使用了设计模式中的观察者模式</p></blockquote> <ul><li>通过<code>Promise.prototype.then</code>和<code>Promise.prototype.catch</code>方法将观察者方法注册到被观察者<code>Promise</code>对象中，同时返回一个新的<code>Promise</code>对象，以便可以链式调用</li> <li>被观察者管理内部<code>pending</code>、<code>fulfilled</code>和<code>rejected</code>的状态转变，同时通过构造函数中传递的<code>resolve</code>和<code>reject</code>方法以主动触发状态转变和通知观察者</li></ul></div> </body></html>

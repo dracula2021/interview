@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html -->
+<html lang="en-US" class=" "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <title>一、环境搭建 | 面试指南</title>
+    
+    <link rel="icon" href="./dva_files/logo.png">
+    <link rel="manifest" href="http://interview.poetries.top/manifest.json">
+    <link rel="apple-touch-icon" href="http://interview.poetries.top/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="http://interview.poetries.top/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="preload" href="./dva_files/0.styles.a3a6df6c.css" as="style"><link rel="preload" href="./dva_files/app.25cf4eee.js.下载" as="script"><link rel="preload" href="./dva_files/5.bc663a4c.js.下载" as="script"><link rel="preload" href="./dva_files/4.1aaf03c6.js.下载" as="script"><link rel="preload" href="./dva_files/12.ac0bc851.js.下载" as="script"><link rel="preload" href="./dva_files/11.3e5297f1.js.下载" as="script"><link rel="prefetch" href="./dva_files/1.d83c2af0.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/10.fdecf69b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/100.df83f687.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/101.3986f029.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/102.1468be32.js"><link rel="prefetch" href="./dva_files/103.bfef2896.js.下载"><link rel="prefetch" href="./dva_files/104.1731bbb1.js.下载"><link rel="prefetch" href="./dva_files/105.710b118c.js.下载"><link rel="prefetch" href="./dva_files/106.b955d37d.js.下载"><link rel="prefetch" href="./dva_files/107.6f79a916.js.下载"><link rel="prefetch" href="./dva_files/108.34ee5a8e.js.下载"><link rel="prefetch" href="./dva_files/109.f6c05e4d.js.下载"><link rel="prefetch" href="./dva_files/110.a375ddec.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/111.bcc5c187.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/112.afcfef56.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/113.2e7c6e37.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/114.9cfdb334.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/115.063815ec.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/116.4e29ee01.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/117.b106fd0d.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/118.e4e784f7.js"><link rel="prefetch" href="./dva_files/119.94fe014a.js.下载"><link rel="prefetch" href="./dva_files/13.57028e74.js.下载"><link rel="prefetch" href="./dva_files/14.043c3e8a.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/15.a6d0032e.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/16.6094fda8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/17.f17aa05b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/18.9732bfb3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/19.2c38a6bb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/20.92742304.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/21.28c8a661.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/22.3222a772.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/23.8192ecea.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/24.b5156b88.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/25.034d5e81.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/26.c78d8f63.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/27.cd94c89c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/28.b2c8e24c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/29.e9a30c2c.js"><link rel="prefetch" href="./dva_files/3.f5ea6e07.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/30.2bd67425.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/31.6333035e.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/32.1a34dfa0.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/33.b5863ac0.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/34.cababd6c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/35.0b09d4a2.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/36.8f89ed73.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/37.38d590c3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/38.4799c402.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/39.c9d13f25.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/40.21e1dcb8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/41.16e0641a.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/42.9ce6fd83.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/43.8936e729.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/44.5ebdd233.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/45.ce59a54c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/46.b6f1380b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/47.5fe8aac4.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/48.a31741eb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/49.16132e72.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/50.ca74d5c9.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/51.f21f79ee.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/52.6ff2b7c5.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/53.003482ca.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/54.136b1210.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/55.5d00c7ca.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/56.e5b5668d.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/57.9275f210.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/58.dcf3e81b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/59.5cbf4407.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/6.f2ac32df.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/60.ecfb5f55.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/61.8356d65b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/62.8ca03065.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/63.a0c06a04.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/64.406f4c0f.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/65.9d0c9d57.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/66.ca2ccee4.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/67.b01df864.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/68.e99acf6a.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/69.f7dbb3b1.js"><link rel="prefetch" href="./dva_files/7.26b183c1.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/70.b3199540.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/71.d7c346c6.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/72.6afb9cd3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/73.80370c6b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/74.eec2a38b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/75.fdbda41f.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/76.c8a9acd3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/77.02560728.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/78.f3bcf134.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/79.01333f71.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/8.b6777e86.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/80.a7dfb481.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/81.29a3aa15.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/82.9039f284.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/83.e29f794c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/84.9aea4d6e.js"><link rel="prefetch" href="./dva_files/85.6fa07b30.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/86.b0a530f1.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/87.a2c892ff.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/88.2c0ab353.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/89.0a6986cd.js"><link rel="prefetch" href="./dva_files/9.7231fa75.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/90.80c04201.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/91.19846beb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/92.09ef3493.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/93.8bad40d8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/94.f0810e7b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/95.3a648c4f.js"><link rel="prefetch" href="./dva_files/96.827e7cb2.js.下载"><link rel="prefetch" href="./dva_files/97.cc180b8f.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/98.d2138442.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/99.7e99e846.js">
+    <link rel="stylesheet" href="./dva_files/0.styles.a3a6df6c.css">
+  <style type="text/css">.medium-zoom-overlay{position:fixed;top:0;right:0;bottom:0;left:0;opacity:0;transition:opacity .3s;will-change:opacity}.medium-zoom--opened .medium-zoom-overlay{cursor:pointer;cursor:zoom-out;opacity:1}.medium-zoom-image{cursor:pointer;cursor:zoom-in;transition:transform .3s cubic-bezier(.2,0,.2,1)!important}.medium-zoom-image--hidden{visibility:hidden}.medium-zoom-image--opened{position:relative;cursor:pointer;cursor:zoom-out;will-change:transform}</style><script charset="utf-8" src="./dva_files/119.94fe014a.js.下载"></script><script charset="utf-8" src="./dva_files/1.d83c2af0.js.下载"></script><script charset="utf-8" src="./dva_files/13.57028e74.js.下载"></script><script charset="utf-8" src="./dva_files/14.043c3e8a.js.下载"></script><script charset="utf-8" src="./dva_files/104.1731bbb1.js.下载"></script><script charset="utf-8" src="./dva_files/105.710b118c.js.下载"></script><script charset="utf-8" src="./dva_files/85.6fa07b30.js.下载"></script><script charset="utf-8" src="./dva_files/7.26b183c1.js.下载"></script><script charset="utf-8" src="./dva_files/3.f5ea6e07.js.下载"></script><script charset="utf-8" src="./dva_files/9.7231fa75.js.下载"></script><script charset="utf-8" src="./dva_files/106.b955d37d.js.下载"></script><script charset="utf-8" src="./dva_files/107.6f79a916.js.下载"></script><script charset="utf-8" src="./dva_files/108.34ee5a8e.js.下载"></script><script charset="utf-8" src="./dva_files/109.f6c05e4d.js.下载"></script><script charset="utf-8" src="./dva_files/110.a375ddec.js.下载"></script><script charset="utf-8" src="./dva_files/96.827e7cb2.js.下载"></script><script charset="utf-8" src="./dva_files/103.bfef2896.js.下载"></script><script charset="utf-8" src="./dva_files/97.cc180b8f.js.下载"></script><meta name="description" content="前端面试指南，前端面试题整理，按模块分类整理总结，打造最全面的前端面试题"><meta name="theme-color" content="#3eaf7c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png"><meta name="msapplication-TileColor" content="#000000"></head>
+  <body class="">
+    <div id="app"><div class="theme-container"><header class="navbar" style="background: rgb(255, 255, 255);"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="http://interview.poetries.top/" class="home-link router-link-active"><img src="./原理_files/logo.png" alt="面试指南" class="logo"> <span class="site-name can-hide">面试指南</span></a> <div class="links" style="background: rgb(255, 255, 255); max-width: 1771px;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value="" class="" placeholder=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div><a href="./index.html" class="nav-link">基础
+    </a></div></div><div class="nav-item"><div><a href="./进阶.html" class="nav-link">✨进阶
+    </a></div></div><div class="nav-item"><div><a href="./精选.html" class="nav-link">👍精选
+    </a></div></div><div class="nav-item"><div><a href="./高频.html" class="nav-link">🔥高频
+    </a></div></div><div class="nav-item"><div><a href="./指南.html" class="nav-link">指南
+    </a></div></div><div class="nav-item"><div><a href="./性能.html" class="nav-link">性能
+    </a></div></div><div class="nav-item"><div><a href="./综合.html" class="nav-link">综合
+    </a></div></div><div class="nav-item"><div><a href="./vue.html" class="nav-link">原理
+    </a></div></div><div class="nav-item"><div><a href="./手写.html" class="nav-link">手写
+    </a></div></div><div class="nav-item"><div><a href="./自检.html" class="nav-link">自检
+    </a></div></div><div class="nav-item"><div><a href="./面经.html" class="nav-link">⭐面经
+    </a></div></div><div class="nav-item"><div><a href="./每日一题.html" class="nav-link">💥每日一题
+    </a></div></div><div class="nav-item"><div><a href="./设计模式.html" class="nav-link">设计模式
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/algorithm-interview/note/01-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E2%80%94%E2%80%94%E4%BB%8E0%E5%88%B01%E6%8E%8C%E6%8F%A1%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89.html" class="nav-link">
+  </a></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="拓展阅读" class="dropdown-title"><span class="title">拓展阅读</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display: none;"><li class="dropdown-item"><h4>专题</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-base-docs/compute-docs/Linux.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-mobile-docs/h5-docs/1-%E5%A4%A7%E5%8E%82%20H5%20%E5%BC%80%E5%8F%91%E6%A6%82%E8%BF%B0.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-css-inspiration-docs/css-docs/note/01-%E6%B5%8F%E8%A7%88%E5%99%A8.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/learn-vue-base/base/1-Vue%20CLI%203%20%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-react-docs/react-web-action/01-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%97%B6%E4%BB%A3.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-micro-docs/docs/01-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E8%AF%9E%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-engineering-docs/docs/npm-script.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-ts-axios-docs/ts-axios/chapter1/" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-algorithm-docs/algorithm/prepare/01-%E5%A6%82%E4%BD%95%E7%B3%BB%E7%BB%9F%E9%AB%98%E6%95%88%E5%9C%B0%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      浏览器原理
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/http-protocol/notes/base/01-HTTP%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      HTTP基础
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/webpack.html" class="nav-link">webpack
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/npm-script.html" class="nav-link">npm工作流
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/canvas.html" class="nav-link">Canvas
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/Taro.html" class="nav-link">Taro原理
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Node学习指南
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/vue-analysis/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Vue源码分析
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-blog-docs/blog-docs/javascript/-Ajax%E6%80%BB%E7%BB%93%E7%AF%87.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      日常积累
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://blog.poetries.top/archives/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      博文
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="background: rgb(255, 255, 255);"><nav class="nav-links"><div class="nav-item"><div><a href="http://interview.poetries.top/docs/base.html" class="nav-link">基础
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/simply.html" class="nav-link">✨进阶
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/excellent-docs/1-HTML%E6%A8%A1%E5%9D%97.html" class="nav-link">👍精选
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/excellent.html" class="nav-link">🔥高频
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/guide.html" class="nav-link">指南
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/performance.html" class="nav-link">性能
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/detail-expain.html" class="nav-link">综合
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/principle-docs/comprehensive/01-%E8%99%9A%E6%8B%9FDOM%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html" class="nav-link">原理
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/handwritten.html" class="nav-link">手写
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/qa/1-%E5%89%8D%E7%AB%AF100%E9%A2%98%E8%87%AA%E6%A3%80.html" class="nav-link">自检
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/interview-exp/%E5%89%8D%E7%AB%AF%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB.html" class="nav-link">⭐面经
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/days/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98.html" class="nav-link">💥每日一题
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/design-pattern.html" class="nav-link">设计模式
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/algorithm-interview/note/01-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E2%80%94%E2%80%94%E4%BB%8E0%E5%88%B01%E6%8E%8C%E6%8F%A1%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89.html" class="nav-link">
+  </a></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="拓展阅读" class="dropdown-title"><span class="title">拓展阅读</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display: none;"><li class="dropdown-item"><h4>专题</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-base-docs/compute-docs/Linux.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-mobile-docs/h5-docs/1-%E5%A4%A7%E5%8E%82%20H5%20%E5%BC%80%E5%8F%91%E6%A6%82%E8%BF%B0.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-css-inspiration-docs/css-docs/note/01-%E6%B5%8F%E8%A7%88%E5%99%A8.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/learn-vue-base/base/1-Vue%20CLI%203%20%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-react-docs/react-web-action/01-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%97%B6%E4%BB%A3.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-micro-docs/docs/01-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E8%AF%9E%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-engineering-docs/docs/npm-script.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-ts-axios-docs/ts-axios/chapter1/" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-algorithm-docs/algorithm/prepare/01-%E5%A6%82%E4%BD%95%E7%B3%BB%E7%BB%9F%E9%AB%98%E6%95%88%E5%9C%B0%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      浏览器原理
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/http-protocol/notes/base/01-HTTP%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      HTTP基础
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/webpack.html" class="nav-link">webpack
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/npm-script.html" class="nav-link">npm工作流
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/canvas.html" class="nav-link">Canvas
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/Taro.html" class="nav-link">Taro原理
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Node学习指南
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/vue-analysis/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Vue源码分析
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-blog-docs/blog-docs/javascript/-Ajax%E6%80%BB%E7%BB%93%E7%AF%87.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      日常积累
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://blog.poetries.top/archives/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      博文
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li></ul></div></div> <!----></nav> <div style="padding-left:1.5rem;"><div class="qr"><img src="./dva_files/qr.ee193d28.jpg" alt="poetries" width="120" height="120" loading="lazy"> <p class="we-intro">
+    关注公众号，获取更多资讯
+  </p></div></div>
+  <ul class="sidebar-links"><li><section class="sidebar-group depth-0">
+    <p class="sidebar-heading"><span>Vue</span> <!----></p> 
+    <ul class="sidebar-links sidebar-group-items"><li>
+      <a href="./vue.html" class="sidebar-link">从源码解读Vue生命周期</a></li>
+      <li><a href="./组件的本质.html" class="sidebar-link">组件的本质</a></li>
+      <li><a href="./组件设计.html" class="sidebar-link">有状态组件的设计</a></li>
+      <li><a href="./设计vnode.html" class="sidebar-link">设计 VNode</a></li>
+      <li><a href="./vnode的h函数.html" class="sidebar-link">辅助创建 VNode 的 h 函数</a></li>
+      <li><a href="./自定义渲染.html" class="sidebar-link">自定义渲染器和异步渲染</a></li>
+      <li><a href="./渲染器的挂载.html" class="sidebar-link">渲染器之挂载</a></li>
+      <li><a href="./渲染diff.html" class="sidebar-link">渲染器的核心 Diff 算法</a></li>
+      <li><a href="./渲染器patch.html" class="sidebar-link">渲染器之patch</a></li>
+      <li><a href="./vue响应式.html" class="sidebar-link">图解 Vue 响应式原理</a></li>
+      <li><a href="./vue异步更新.html" class="sidebar-link">图解 Vue 异步更新</a></li>
+      <li><a href="./vue运行机制.html" class="sidebar-link">剖析 Vue 内部运行机制</a></li>
+      <li><a href="./模拟响应式.html" class="sidebar-link">vue响应式原理模拟</a></li>
+      <li><a href="./vuex.html" class="sidebar-link">vue状态管理之vuex</a></li>
+    </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>React</span> <!----></p> 
+      <ul class="sidebar-links sidebar-group-items">
+        <li><a href="./react.html" class="sidebar-link">React</a></li>
+        <li><a href="./dva.html" class="sidebar-link">Dva总结</a></li>
+        <li><a href="./MobX.html" class="sidebar-link">MobX总结</a></li>
+        <li><a href="./redux.html" class="sidebar-link">浅析redux</a></li>
+        <li><a href="./redux中间件.html" class="sidebar-link">Redux之浅析中间件</a></li>
+        <li><a href="./redux源码.html" class="sidebar-link">Redux之源码分析</a></li>
+        <li><a href="./redux异步action.html" class="sidebar-link">Redux之异步Action及操作</a></li>
+      </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Webpack</span> <!----></p> 
+        <ul class="sidebar-links sidebar-group-items">
+          <li><a href="./webpack打包原理.html" class="sidebar-link">Webpack4打包机制原理解析</a></li>
+          <li><a href="./热更新.html" class="sidebar-link">webpack中的HMR热更新原理剖析</a></li>
+          <li><a href="./webpack4原理.html" class="sidebar-link">从源码窥探Webpack4.x原理</a></li>
+          <li><a href="./实现webpack打包.html" class="sidebar-link">实现webpack小型打包工具</a></li>
+          <li><a href="./babel原理.html" class="sidebar-link">Babel原理及其使用</a></li>
+        </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>综合</span> <!----></p>
+           <ul class="sidebar-links sidebar-group-items">
+             <li><a href="./虚拟dom原理.html" class="active sidebar-link">虚拟DOM原理分析</a></li>
+             <li><a href="./settimeout指南.html" class="active sidebar-link">setTimeout</a></li>
+             <li class="sidebar-sub-header"><a href="./promise.html" class="sidebar-link">浅析Promise原理</a></li>
+        <a href="./浏览器如何渲染.html" class="sidebar-link">浏览器渲染原理</a></li>
+        <li><a href="./mvvm.html" class="sidebar-link">前端面试之MVVM浅析</a></li>
+        <li><a href="./组件化.html" class="sidebar-link">前端面试之组件化</a></li>
+        <li><a href="./虚拟dom1.html" class="sidebar-link">虚拟DOM（一）</a></li>
+        <li><a href="./虚拟dom2.html" class="sidebar-link">虚拟DOM（二）</a></li>
+        <li><a href="./performance.html" class="sidebar-link">前端性能之Performance</a></li>
+      </ul></section></li></ul> 
+ </aside> <main class="page"> <div id="container" class="theme-default-content pay-content"><div class="content__default"><h2 id="一、环境搭建"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" class="header-anchor">#</a> 一、环境搭建</h2> <div class="language- extra-class"><pre class="language-text"><code>$ npm install dva-cli -g
+
+# 创建应用
+$ dva new dva-quickstart
+
+# 启动
+$ npm start
+</code></pre></div><blockquote><p>react项目的推荐目录结构（如果使用dva脚手架创建，则自动生成如下）</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>|── /mock/             # 数据mock的接口文件  
+|── /src/              # 项目源码目录（我们开发的主要工作区域）   
+|   |── /components/   # 项目组件（用于路由组件内引用的可复用组件）   
+|   |── /routes/       # 路由组件（页面维度） 
+|   |  |── route1.js  
+|   |  |── route2.js   # 根据router.js中的映射，在不同的url下，挂载不同的路由组件
+|   |  └── route3.js    
+|   |── /models/       # 数据模型（可以理解为store，用于存储数据与方法）  
+|   |  |── model1.js  
+|   |  |── model2.js   # 选择分离为多个model模型，是根据业务实体进行划分
+|   |  └── model3.js  
+|   |── /services/     # 数据接口（处理前台页面的ajax请求，转发到后台）   
+|   |── /utils/        # 工具函数（工具库，存储通用函数与配置参数）     
+|   |── router.js       # 路由配置（定义路由与对应的路由组件）  
+|   |── index.js       # 入口文件  
+|   |── index.less      
+|   └── index.html     
+|── package.json       # 项目信息  
+└── proxy.config.js    # 数据mock配置
+</code></pre></div><p><strong>使用 antd</strong></p> <div class="language- extra-class"><pre class="language-text"><code>npm i babel-plugin-import --save
+</code></pre></div><blockquote><p><code>babel-plugin-import</code> 是用来按需加载 <code>antd</code> 的脚本和样式的</p></blockquote> <ul><li>编辑 <code>.webpackrc</code>，使 <code>babel-plugin-import</code> 插件生效</li></ul> <div class="language- extra-class"><pre class="language-text"><code>{
++  "extraBabelPlugins": [
++    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
++  ]
+}
+</code></pre></div><h2 id="二、初识dva"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#%E4%BA%8C%E3%80%81%E5%88%9D%E8%AF%86dva" class="header-anchor">#</a> 二、初识Dva</h2> <h3 id="_2-1-dva的特性"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-1-dva%E7%9A%84%E7%89%B9%E6%80%A7" class="header-anchor">#</a> 2.1 Dva的特性</h3> <div class="language- extra-class"><pre class="language-text"><code>dva = React-Router + Redux + Redux-saga
+</code></pre></div><ul><li>仅有 5 个<code>API</code>，仅有5个主要的<code>api</code></li> <li>支持 <code>HMR</code>，支持模块的热更新</li> <li>支持 <code>SSR (ServerSideRender)</code>，支持服务器端渲染</li> <li>支持 <code>Mobile/ReactNative</code>，支持移动手机端的代码编写</li> <li>支持<code>TypeScript</code></li> <li>支持路由和 <code>Model</code> 的动态加载</li></ul> <h3 id="_2-2-dva的五个api"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-2-dva%E7%9A%84%E4%BA%94%E4%B8%AAapi" class="header-anchor">#</a> 2.2 Dva的五个API</h3> <p><img src="./dva_files/43.png" alt="img" class="medium-zoom-image"></p> <h4 id="_2-2-1-app-dva-opts"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-2-1-app-dva-opts" class="header-anchor">#</a> 2.2.1 app = dva(Opts)</h4> <blockquote><p><code>app = dva(Opts)</code>：创建应用，返回 <code>dva</code> 实例。(注：dva 支持多实例)**</p></blockquote> <p>在<code>opts</code>可以配置所有的<code>hooks</code></p> <div class="language- extra-class"><pre class="language-text"><code>const app = dva({
+     history,
+     initialState,
+     onError,
+     onAction,
+     onStateChange,
+     onReducer,
+     onEffect,
+     onHmr,
+     extraReducers,
+     extraEnhancers,
+});
+</code></pre></div><blockquote><p>hooks包含如下配置项</p></blockquote> <p>1、 <code>onError((err, dispatch) =&gt; {})</code></p> <ul><li><code>effect</code> 执行错误或 <code>subscription</code> 通过<code>done</code> 主动抛错时触发，可用于管理全局出错状态</li> <li>注意：<code>subscription</code> 并没有加 <code>try...catch</code>，所以有错误时需通过第二个参数 <code>done</code> 主动抛错</li></ul> <div class="language- extra-class"><pre class="language-text"><code>app.model({
+  subscriptions: {
+    setup({ dispatch }, done) {
+      done(e)
+    },
+  },
+})
+</code></pre></div><p>2、 <code>onAction(fn | fn[])</code></p> <blockquote><p>在<code>action</code>被<code>dispatch</code>时触发，用于注册 <code>redux</code> 中间件。支持函数或函数数组格式</p></blockquote> <ul><li>例如我们要通过 <code>redux-logger</code> 打印日志</li></ul> <div class="language- extra-class"><pre class="language-text"><code>import createLogger from 'redux-logger';
+const app = dva({
+  onAction: createLogger(opts),
+})
+</code></pre></div><p>3、 <code>onStateChange(fn)</code></p> <blockquote><p><code>state</code> 改变时触发，可用于同步 state 到 <code>localStorage</code>，服务器端等</p></blockquote> <p>4、 <code>onReducer(fn)</code></p> <blockquote><p>封装 <code>reducer</code> 执行，比如借助 <code>redux-undo</code> 实现 <code>redo/undo</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import undoable from 'redux-undo';
+const app = dva({
+  onReducer: reducer =&gt; {
+    return (state, action) =&gt; {
+      const undoOpts = {};
+      const newState = undoable(reducer, undoOpts)(state, action);
+      // 由于 dva 同步了 routing 数据，所以需要把这部分还原
+      return { ...newState, routing: newState.present.routing };
+    },
+  },
+})
+</code></pre></div><p>5、 <code>onEffect(fn)</code></p> <blockquote><p>封装 <code>effect</code> 执行。比如 <code>dva-loading</code> 基于此实现了自动处理 <code>loading</code> 状态</p></blockquote> <p>6、 <code>onHmr(fn)</code></p> <blockquote><p>热替换相关，目前用于 <code>babel-plugin-dva-hmr</code></p></blockquote> <p>7、 <code>extraReducers</code></p> <blockquote><p>指定额外的 <code>reducer</code>，比如 <code>redux-form</code> 需要指定额外的 <code>form reducer</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import { reducer as formReducer } from 'redux-form'
+const app = dva({
+  extraReducers: {
+    form: formReducer,
+  },
+})
+</code></pre></div><blockquote><p>这里比较常用的是，<code>history</code>的配置，一般默认的是<code>hashHistory</code>，如果要配置 <code>history</code>为 <code>browserHistory</code>，可以这样</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import createHistory from 'history/createBrowserHistory';
+const app = dva({
+  history: createHistory(),
+});
+</code></pre></div><blockquote><div class="language- extra-class"><pre class="language-text"><code>initialState`：指定初始数据，优先级高于 `model` 中的 `state`，默认是 `{}`，但是基本上都在`modal`里面设置相应的`state
+</code></pre></div></blockquote> <h4 id="_2-2-2-app-use-hooks"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-2-2-app-use-hooks" class="header-anchor">#</a> 2.2.2 app.use(Hooks)</h4> <blockquote><p>app.use(Hooks)：配置 hooks 或者注册插件</p></blockquote> <p>这里最常见的就是<code>dva-loading</code>插件的配置</p> <div class="language- extra-class"><pre class="language-text"><code>import createLoading from 'dva-loading';
+...
+app.use(createLoading(opts));
+</code></pre></div><blockquote><p>但是一般对于全局的<code>loading</code>我们会根据业务的不同来显示相应不同的<code>loading</code>图标，我们可以根据自己的需要来选择注册相应的插件</p></blockquote> <h4 id="_2-2-3-app-model-modelobject"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-2-3-app-model-modelobject" class="header-anchor">#</a> 2.2.3 app.model(ModelObject)</h4> <blockquote><p><code>app.model(ModelObject)</code>：这个是你数据逻辑处理，数据流动的地方</p></blockquote> <p><img src="./dva_files/44.png" alt="img" class="medium-zoom-image"></p> <h4 id="_2-2-4-app-unmodel-namespace"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-2-4-app-unmodel-namespace" class="header-anchor">#</a> 2.2.4 app.unmodel(namespace)</h4> <blockquote><p>取消 <code>model</code> 注册，清理 <code>reducers</code>,<code>effects</code> 和 <code>subscriptions</code>。<code>subscription</code> 如果没有返回 <code>unlisten</code> 函数，使用 <code>app.unmodel</code> 会给予警告</p></blockquote> <h4 id="_2-2-5-app-router-function"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-2-5-app-router-function" class="header-anchor">#</a> 2.2.5 app.router(Function)</h4> <blockquote><p>注册路由表，这一操作步骤在dva中也很重要</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// 注册路由
+app.router(require('./router'))
+
+
+// 路由文件
+import { Router, Route } from 'dva/router';
+import IndexPage from './routes/IndexPage'
+import TodoList from './routes/TodoList'
+
+function RouterConfig({ history }) {
+  return (
+    &lt;Router history={history}&gt;
+        &lt;Route path="/" component={IndexPage} /&gt;
+        &lt;Route path='/todoList' components={TodoList}/&gt;
+    &lt;/Router&gt;
+  )
+}
+export default RouterConfig
+</code></pre></div><blockquote><p>如果我们想解决组件动态加载问题，我们的路由文件也可以按照下面的写法来写</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import { Router, Switch, Route } from 'dva/router'
+import dynamic from 'dva/dynamic'
+
+function RouterConfig({ history, app }) {
+  const IndexPage = dynamic({
+    app,
+    component: () =&gt; import('./routes/IndexPage'),
+  })
+
+  const Users = dynamic({
+    app,
+    models: () =&gt; [import('./models/users')],
+    component: () =&gt; import('./routes/Users'),
+  })
+
+  return (
+    &lt;Router history={history}&gt;
+      &lt;Switch&gt;
+        &lt;Route exact path="/" component={IndexPage} /&gt;
+        &lt;Route exact path="/users" component={Users} /&gt;
+      &lt;/Switch&gt;
+    &lt;/Router&gt;
+  )
+}
+
+export default RouterConfig
+</code></pre></div><blockquote><p>其中<code>dynamic(opts)</code> 中<code>opt</code>包含三个配置项：</p></blockquote> <ul><li><code>app</code>: <code>dva</code> 实例，加载 <code>models</code> 时需要</li> <li><code>models</code>: 返回 <code>Promise</code> 数组的函数，<code>Promise</code>返回 dva model`</li> <li><code>component</code>：返回 <code>Promise</code>的函数，<code>Promise</code>返回 <code>React Component</code></li></ul> <h4 id="_2-2-6-app-start"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-2-6-app-start" class="header-anchor">#</a> 2.2.6 app.start</h4> <blockquote><p>启动应用，即将我们的应用跑起来</p></blockquote> <h3 id="_2-3-dva九个概念"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-3-dva%E4%B9%9D%E4%B8%AA%E6%A6%82%E5%BF%B5" class="header-anchor">#</a> 2.3 Dva九个概念</h3> <h4 id="_2-3-1-state"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-3-1-state" class="header-anchor">#</a> 2.3.1 State</h4> <blockquote><p>初始值，我们在 <code>dva()</code> 初始化的时候和在 modal 里面的 <code>state</code> 对其两处进行定义，其中 modal 中的优先级低于传给 <code>dva()</code> 的 <code>opts.initialState</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// dva()初始化
+const app = dva({
+  initialState: { count: 1 },
+});
+
+// modal()定义事件
+app.model({
+  namespace: 'count',
+  state: 0,
+});
+</code></pre></div><h4 id="_2-3-2-action"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-3-2-action" class="header-anchor">#</a> 2.3.2 Action</h4> <blockquote><p>表示操作事件，可以是同步，也可以是异步</p></blockquote> <ul><li><code>action</code> 的格式如下，它需要有一个 <code>type</code>，表示这个 <code>action</code> 要触发什么操作；<code>payload</code> 则表示这个 <code>action</code> 将要传递的数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code>{
+  type: String,
+  payload: data,
+}
+</code></pre></div><blockquote><p>我们通过 dispatch 方法来发送一个 action</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>dispatch({ type: 'todos/add', payload: 'Learn Dva' });
+</code></pre></div><blockquote><p>其实我们可以构建一个Action 创建函数，如下</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function addTodo(text) {
+  return {
+    type: ADD_TODO,
+    text
+  }
+}
+
+//我们直接dispatch(addTodo()),就发送了一个action。
+dispatch(addTodo())
+</code></pre></div><h4 id="_2-3-3-model"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-3-3-model" class="header-anchor">#</a> 2.3.3 Model</h4> <blockquote><p><code>model</code> 是 <code>dva</code> 中最重要的概念，<code>Model</code> 非 <code>MVC</code> 中的 <code>M</code>，而是领域模型，用于把数据相关的逻辑聚合到一起，几乎所有的数据，逻辑都在这边进行处理分发</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import queryString from 'query-string'
+import * as todoService from '../services/todo'
+
+export default {
+  namespace: 'todo',
+  state: {
+    list: []
+  },
+  reducers: {
+    save(state, { payload: { list } }) {
+      return { ...state, list }
+    }
+  },
+  effects: {
+    *addTodo({ payload: value }, { call, put, select }) {
+      // 模拟网络请求
+      const data = yield call(todoService.query, value)
+      console.log(data)
+      let tempList = yield select(state =&gt; state.todo.list)
+      let list = []
+      list = list.concat(tempList)
+      const tempObj = {}
+      tempObj.title = value
+      tempObj.id = list.length
+      tempObj.finished = false
+      list.push(tempObj)
+      yield put({ type: 'save', payload: { list }})
+    },
+    *toggle({ payload: index }, { call, put, select }) {
+      // 模拟网络请求
+      const data = yield call(todoService.query, index)
+      let tempList = yield select(state =&gt; state.todo.list)
+      let list = []
+      list = list.concat(tempList)
+      let obj = list[index]
+      obj.finished = !obj.finished
+      yield put({ type: 'save', payload: { list } })
+    },
+    *delete({ payload: index }, { call, put, select }) {
+      const data = yield call(todoService.query, index)
+      let tempList = yield select(state =&gt; state.todo.list)
+      let list = []
+      list = list.concat(tempList)
+      list.splice(index, 1)
+      yield put({ type: 'save', payload: { list } })
+    },
+    *modify({ payload: { value, index } }, { call, put, select }) {
+      const data = yield call(todoService.query, value)
+      let tempList = yield select(state =&gt; state.todo.list)
+      let list = []
+      list = list.concat(tempList)
+      let obj = list[index]
+      obj.title = value
+      yield put({ type: 'save', payload: { list } })
+    }
+  },
+  subscriptions: {
+    setup({ dispatch, history }) {
+      // 监听路由的变化，请求页面数据
+      return history.listen(({ pathname, search }) =&gt; {
+        const query = queryString.parse(search)
+        let list = []
+        if (pathname === 'todoList') {
+          dispatch({ type: 'save', payload: {list} })
+        }
+      })
+    }
+  }
+}
+</code></pre></div><blockquote><p><code>model</code>对象中包含5个重要的属性</p></blockquote> <p><strong>state</strong></p> <blockquote><p>这里的 state 跟我们刚刚讲的 state 的概念是一样的，只不过她的优先级比初始化的低，但是基本上项目中的 state 都是在这里定义的</p></blockquote> <p><strong>namespace</strong></p> <blockquote><div class="language- extra-class"><pre class="language-text"><code>model` 的命名空间，同时也是他在全局 `state` 上的属性，只能用字符串，我们发送在发送 `action` 到相应的 `reducer` 时，就会需要用到 `namespace
+</code></pre></div></blockquote> <p><strong>Reducer</strong></p> <blockquote><p>以<code>key/value</code> 格式定义 <code>reducer</code>，用于处理同步操作，唯一可以修改 <code>state</code> 的地方。由 <code>action</code> 触发。其实一个纯函数</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>namespace: 'todo',
+  state: {
+    list: []
+  },
+  // reducers 写法
+  reducers: {
+    save(state, { payload: { list } }) {
+      return { ...state, list }
+    }
+ }
+</code></pre></div><p><strong>Effect</strong></p> <blockquote><p>用于处理异步操作和业务逻辑，不直接修改 <code>state</code>，简单的来说，就是获取从服务端获取数据，并且发起一个 <code>action</code>交给<code>reducer</code> 的地方</p></blockquote> <p>其中它用到了<code>redux-saga</code>，里面有几个常用的函数。</p> <div class="language- extra-class"><pre class="language-text"><code>// effects 写法
+effects: {
+    *addTodo({ payload: value }, { call, put, select }) {
+      // 模拟网络请求
+      const data = yield call(todoService.query, value)
+      console.log(data)
+      let tempList = yield select(state =&gt; state.todo.list)
+      let list = []
+      list = list.concat(tempList)
+      const tempObj = {}
+      tempObj.title = value
+      tempObj.id = list.length
+      tempObj.finished = false
+      list.push(tempObj)
+      yield put({ type: 'save', payload: { list }})
+    },
+    *toggle({ payload: index }, { call, put, select }) {
+      // 模拟网络请求
+      const data = yield call(todoService.query, index)
+      let tempList = yield select(state =&gt; state.todo.list)
+      let list = []
+      list = list.concat(tempList)
+      let obj = list[index]
+      obj.finished = !obj.finished
+      yield put({ type: 'save', payload: { list } })
+    },
+    *delete({ payload: index }, { call, put, select }) {
+      const data = yield call(todoService.query, index)
+      let tempList = yield select(state =&gt; state.todo.list)
+      let list = []
+      list = list.concat(tempList)
+      list.splice(index, 1)
+      yield put({ type: 'save', payload: { list } })
+    },
+    *modify({ payload: { value, index } }, { call, put, select }) {
+      const data = yield call(todoService.query, value)
+      let tempList = yield select(state =&gt; state.todo.list)
+      let list = []
+      list = list.concat(tempList)
+      let obj = list[index]
+      obj.title = value
+      yield put({ type: 'save', payload: { list } })
+    }
+}
+</code></pre></div><p><img src="./dva_files/1505342-9ecb8ba2d8fd3ec2.png" alt="img" class="medium-zoom-image"></p> <blockquote><p>在项目中最主要的会用到的是 <code>put</code> 与 <code>call</code></p></blockquote> <p><strong>Subscription</strong></p> <blockquote><ul><li>以 <code>key/value</code> 格式定义 <code>subscription</code>，<code>subscription</code> 是订阅，用于订阅一个数据源，然后根据需要 dispatch 相应的 action</li> <li><code>subscription</code> 是订阅，用于订阅一个数据源，然后根据需要 <code>dispatch</code> 相应的<code>action</code>。在 <code>app.start()</code> 时被执行，数据源可以是当前的时间、当前页面的<code>url</code>、服务器的 <code>websocket</code> 连接、<code>history</code>路由变化等等。</li></ul></blockquote> <ul><li><strong>注意</strong>：如果要使用 <code>app.unmodel()</code>，<code>subscription</code> 必须返回 <code>unlisten</code> 方法，用于取消数据订阅</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// subscriptions 写法
+subscriptions: {
+    setup({ dispatch, history }) {
+      // 监听路由的变化，请求页面数据
+      return history.listen(({ pathname, search }) =&gt; {
+        const query = queryString.parse(search)
+        let list = []
+        if (pathname === 'todoList') {
+          dispatch({ type: 'save', payload: {list} })
+        }
+      })
+    }
+  }
+</code></pre></div><h4 id="_2-3-4-router"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-3-4-router" class="header-anchor">#</a> 2.3.4 Router</h4> <blockquote><div class="language- extra-class"><pre class="language-text"><code>Router` 表示路由配置信息，项目中的 `router.js
+</code></pre></div></blockquote> <div class="language- extra-class"><pre class="language-text"><code>export default function({ history }){
+  return(
+    &lt;Router history={history}&gt;
+      &lt;Route path="/" component={App} /&gt;
+    &lt;/Router&gt;
+  );
+}
+</code></pre></div><p><strong>RouteComponent</strong></p> <blockquote><p><code>RouteComponent</code> 表示<code>Router</code> 里匹配路径的 <code>Component</code>，通常会绑定<code>model</code>的数据。如下:</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import { connect } from 'dva';
+
+function App() {
+  return &lt;div&gt;App&lt;/div&gt;;
+}
+
+function mapStateToProps(state) {
+  return { todos: state.todos };
+}
+
+export default connect(mapStateToProps)(App);
+</code></pre></div><h3 id="_2-4-整体架构"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-4-%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84" class="header-anchor">#</a> 2.4 整体架构</h3> <p><img src="./dva_files/45.png" alt="img" class="medium-zoom-image"></p> <ul><li>首先我们根据 <code>url</code> 访问相关的 <code>Route-Component</code>，在组件中我们通过 <code>dispatch</code>发送 <code>action</code> 到 <code>model</code> 里面的 <code>effect</code> 或者直接 <code>Reducer</code></li> <li>当我们将<code>action</code>发送给<code>Effect</code>，基本上是取服务器上面请求数据的，服务器返回数据之后，<code>effect</code> 会发送相应的 <code>action</code>给 <code>reducer</code>，由唯一能改变 <code>state</code>的 <code>reducer</code> 改变 <code>state</code> ，然后通过<code>connect</code>重新渲染组件。</li> <li>当我们将<code>action</code>发送给<code>reducer</code>，那直接由 <code>reducer</code> 改变 <code>state</code>，然后通过<code>connect</code>重新渲染组件</li></ul> <h3 id="_2-5-dva图解"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_2-5-dva%E5%9B%BE%E8%A7%A3" class="header-anchor">#</a> 2.5 Dva图解</h3> <p><strong>图解一：加入Saga</strong></p> <blockquote><div class="language- extra-class"><pre class="language-text"><code>React` 只负责页面渲染, 而不负责页面逻辑, 页面逻辑可以从中单独抽取出来, 变成 `store
+</code></pre></div></blockquote> <p><img src="./dva_files/46.png" alt="img" class="medium-zoom-image"></p> <blockquote><p>使用 <code>Middleware</code> 拦截 <code>action</code>, 这样一来异步的网络操作也就很方便了, 做成一个 <code>Middleware</code>就行了, 这里使用<code>redux-saga</code> 这个类库</p></blockquote> <ul><li>点击创建 <code>Todo</code>的按钮, 发起一个 <code>type == addTodo</code> 的 <code>action</code></li> <li><code>saga</code> 拦截这个 <code>action</code>, 发起 <code>http</code> 请求, 如果请求成功, 则继续向 <code>reducer</code> 发一个 <code>type == addTodoSucc</code> 的 <code>action</code>, 提示创建成功, 反之则发送 <code>type == addTodoFail</code> 的<code>action</code> 即可</li></ul> <p><strong>图解二：Dva表示法</strong></p> <p><img src="./dva_files/47.png" alt="img" class="medium-zoom-image"></p> <blockquote><p>dva做了 3 件很重要的事情</p></blockquote> <ul><li>把 <code>store</code>及 <code>saga</code> 统一为一个 <code>model</code> 的概念, 写在一个 js 文件里面</li> <li>增加了一个 <code>Subscriptions</code>, 用于收集其他来源的 <code>action</code>, eg: 键盘操作</li> <li><code>model</code> 写法很简约, 类似于 <code>DSL</code> 或者 <code>RoR</code></li></ul> <h2 id="三、计数器例子"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#%E4%B8%89%E3%80%81%E8%AE%A1%E6%95%B0%E5%99%A8%E4%BE%8B%E5%AD%90" class="header-anchor">#</a> 三、计数器例子</h2> <div class="language- extra-class"><pre class="language-text"><code>$ dva new myapp
+</code></pre></div><p><strong>目录结构介绍</strong></p> <div class="language- extra-class"><pre class="language-text"><code>.
+├── mock    // mock数据文件夹
+├── node_modules // 第三方的依赖
+├── public  // 存放公共public文件的文件夹
+├── src  // 最重要的文件夹，编写代码都在这个文件夹下
+│   ├── assets // 可以放图片等公共资源
+│   ├── components // 就是react中的木偶组件
+│   ├── models // dva最重要的文件夹，所有的数据交互及逻辑都写在这里
+│   ├── routes // 就是react中的智能组件，不要被文件夹名字误导。
+│   ├── services // 放请求借口方法的文件夹
+│   ├── utils // 自己的工具方法可以放在这边
+│   ├── index.css // 入口文件样式
+│   ├── index.ejs // ejs模板引擎
+│   ├── index.js // 入口文件
+│   └── router.js // 项目的路由文件
+├── .eslintrc // bower安装目录的配置
+├── .editorconfig // 保证代码在不同编辑器可视化的工具
+├── .gitignore // git上传时忽略的文件
+├── .roadhogrc.js // 项目的配置文件，配置接口转发，css_module等都在这边。
+├── .roadhogrc.mock.js // 项目的配置文件
+└── package.json // 当前整一个项目的依赖
+</code></pre></div><p><strong>首先是前端的页面，我们使用 class 形式来创建组件，原例子中是使用无状态来创建的。react 创建组件的各种方式，大家可以看<a href="http://www.cnblogs.com/wonyun/p/5930333.html" target="_blank" rel="noopener noreferrer">React创建组件的三种方式及其区别<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong></p> <blockquote><p>我们先修改<code>route/IndexPage.js</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import React from 'react';
+import { connect } from 'dva';
+import styles from './IndexPage.css';
+
+class IndexPage extends React.Component {
+  render() {
+    const { dispatch } = this.props;
+
+    return (
+      &lt;div className={styles.normal}&gt;
+        &lt;div className={styles.record}&gt;Highest Record: 1&lt;/div&gt;
+        &lt;div className={styles.current}&gt;2&lt;/div&gt;
+        &lt;div className={styles.button}&gt;
+          &lt;button onClick={() =&gt; {}}&gt;+&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default connect()(IndexPage);
+</code></pre></div><blockquote><p>同时修改样式<code>routes/IndexPage.css</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>.normal {
+  width: 200px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 20px #ccc;
+}
+.record {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  color: #ccc;
+}
+.current {
+  text-align: center;
+  font-size: 40px;
+  padding: 40px 0;
+}
+.button {
+  text-align: center;
+  button {
+    width: 100px;
+    height: 40px;
+    background: #aaa;
+    color: #fff;
+  }
+}
+</code></pre></div><blockquote><p>在 <code>model</code> 处理<code>state</code>，在页面里面输出 <code>model</code> 中的 <code>state</code></p></blockquote> <ul><li>首先我们在index.js中将<code>models/example.js</code>，即将model下一行的的注释打开</li></ul> <div class="language- extra-class"><pre class="language-text"><code>import dva from 'dva';
+import './index.css';
+
+// 1. Initialize
+const app = dva();
+
+// 2. Plugins
+// app.use({});
+
+// 3. Model
+app.model(require('./models/example')); // 打开注释
+
+// 4. Router
+app.router(require('./router'));
+
+// 5. Start
+app.start('#root');
+</code></pre></div><blockquote><p>接下来我们进入 <code>models/example.js</code>，将<code>namespace</code> 名字改为 <code>count</code>，<code>state</code>对象加上 <code>record</code> 与 <code>current</code> 属性。如下</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>export default {
+  namespace: 'count',
+  state: {
+    record: 0,
+    current: 0,
+  },
+  ...
+};
+</code></pre></div><blockquote><p>接着我们来到 <code>routes/indexpage.js</code> 页面，通过的 <code>mapStateToProps</code>引入相关的 <code>state</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import React from 'react';
+import { connect } from 'dva';
+import styles from './IndexPage.css';
+
+class IndexPage extends React.Component {
+  render() {
+    const { dispatch, count } = this.props;
+    
+    return (
+      &lt;div className={styles.normal}&gt;
+        &lt;div className={styles.record}&gt;
+         Highest Record: {count.record} // 将count的record输出
+        &lt;/div&gt;
+        &lt;div className={styles.current}&gt;
+         {count.current}
+        &lt;/div&gt;
+        &lt;div className={styles.button}&gt;
+          &lt;button onClick={() =&gt; {} } &gt;
+                 +
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return { count: state.count };
+} // 获取state
+
+export default connect(mapStateToProps)(IndexPage);
+</code></pre></div><blockquote><p>通过 <code>+</code> 发送 <code>action</code>，通过 <code>reducer</code> 改变相应的 <code>state</code></p></blockquote> <ul><li>首先我们在 <code>models/example.js</code>，写相应的 <code>reducer</code></li></ul> <div class="language- extra-class"><pre class="language-text"><code>export default {
+  ...
+  reducers: {
+    add1(state) {
+      const newCurrent = state.current + 1;
+      return { ...state,
+        record: newCurrent &gt; state.record ? newCurrent : state.record,
+        current: newCurrent,
+      };
+    },
+    minus(state) {
+      return { ...state, current: state.current - 1 };
+    },
+  },
+};
+</code></pre></div><blockquote><p>在页面的模板 <code>routes/IndexPage.js</code> 中 <code>+</code> 号点击的时候，<code>dispatch</code>一个 <code>action</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import React from 'react';
+import { connect } from 'dva';
+import styles from './IndexPage.css';
+
+class IndexPage extends React.Component {
+  render() {
+    const { dispatch, count } = this.props;
+    return (
+      &lt;div className={styles.normal}&gt;
+        &lt;div className={styles.record}&gt;Highest Record: {count.record}&lt;/div&gt;
+        &lt;div className={styles.current}&gt;{count.current}&lt;/div&gt;
+        &lt;div className={styles.button}&gt;
+          &lt;button 
++            onClick={() =&gt; { dispatch({ type: 'count/add1' });}
+          }&gt;+&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+function mapStateToProps(state) {
+  return { count: state.count };
+}
+
+export default connect(mapStateToProps)(IndexPage);
+</code></pre></div><blockquote><p>接下来我们来使用 <code>effect</code> 模拟一个数据接口请求，返回之后，通过 <code>yield put()</code> 改变相应的 <code>state</code></p></blockquote> <ul><li>首先我们替换相应的 <code>models/example.js</code> 的 <code>effect</code></li></ul> <div class="language- extra-class"><pre class="language-text"><code>effects: {
+    *add(action, { call, put }) {
+      yield call(delay, 1000);
+      yield put({ type: 'minus' });
+    },
+},
+</code></pre></div><blockquote><p>这里的 <code>delay</code>，是我这边写的一个延时的函数，我们在 <code>utils</code> 里面编写一个 <code>utils.js</code> ，一般请求接口的函数都会写在 <code>servers</code> 文件夹中</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>export function delay(timeout) {
+  return new Promise((resolve) =&gt; {
+    setTimeout(resolve, timeout);
+  });
+}
+</code></pre></div><blockquote><p>订阅订阅键盘事件，使用 <code>subscriptions</code>，当用户按住 <code>command+up</code> 时候触发添加数字的 <code>action</code></p></blockquote> <ul><li>在 <code>models/example.js</code> 中作如下修改</li></ul> <div class="language- extra-class"><pre class="language-text"><code>+import key from 'keymaster';
+...
+app.model({
+  namespace: 'count',
++ subscriptions: {
++   keyboardWatcher({ dispatch }) {
++     key('⌘+up, ctrl+up', () =&gt; { dispatch({type:'add'}) });
++   },
++ },
+});
+</code></pre></div><ul><li>在这里你需要安装 <code>keymaster</code> 这个依赖</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npm install keymaster --save
+</code></pre></div><ul><li>现在你可以按住 <code>command+up</code> 就可以使 <code>current</code> 加1</li></ul> <h2 id="四、dva实践"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#%E5%9B%9B%E3%80%81dva%E5%AE%9E%E8%B7%B5" class="header-anchor">#</a> 四、Dva实践</h2> <h3 id="_4-1-抽离model"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-1-%E6%8A%BD%E7%A6%BBmodel" class="header-anchor">#</a> 4.1 抽离Model</h3> <blockquote><p>抽离<code>Model</code>，根据设计页面需求，设计相应的<code>Model</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// models/users.js
+// version1: 从数据维度抽取，更适用于无状态的数据
+// version2: 从业务状态抽取，将数据与组件的业务状态统一抽离成一个model
+// 新增部分为在数据维度基础上，改为从业务状态抽取而添加的代码
+export default {
+  namespace: 'users',
+  state: {
+    list: [],
+    total: null,
++   loading: false, // 控制加载状态
++   current: null, // 当前分页信息
++   currentItem: {}, // 当前操作的用户对象
++   modalVisible: false, // 弹出窗的显示状态
++   modalType: 'create', // 弹出窗的类型（添加用户，编辑用户）
+  },
+
+    // 异步操作
+    effects: {
+        *query(){},
+        *create(){},
+        *'delete'(){},   // 因为delete是关键字，特殊处理
+        *update(){},
+    },
+
+    // 替换状态树
+    reducers: {
++       showLoading(){}, // 控制加载状态的 reducer
++       showModel(){}, // 控制 Model 显示状态的 reducer
++       hideModel(){},
+        querySuccess(){},
+        createSuccess(){},
+        deleteSuccess(){},
+        updateSuccess(){},
+    }
+}
+</code></pre></div><h3 id="_4-2-设计组件"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-2-%E8%AE%BE%E8%AE%A1%E7%BB%84%E4%BB%B6" class="header-anchor">#</a> 4.2 设计组件</h3> <blockquote><p>先设置容器组件的访问路径，再创建组件文件</p></blockquote> <h4 id="_4-2-1-容器组件"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-2-1-%E5%AE%B9%E5%99%A8%E7%BB%84%E4%BB%B6" class="header-anchor">#</a> 4.2.1 容器组件</h4> <blockquote><p>具有监听数据行为的组件，职责是绑定相关联的 model 数据，包含子组件；传入的数据来源于model</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import React, { Component, PropTypes } from 'react';
+
+// dva 的 connect 方法可以将组件和数据关联在一起
+import { connect } from 'dva';
+
+// 组件本身
+const MyComponent = (props)=&gt;{};
+
+// propTypes属性，用于限制props的传入数据类型
+MyComponent.propTypes = {};
+
+// 声明模型传递函数，用于建立组件和数据的映射关系
+// 实际表示 将ModelA这一个数据模型，绑定到当前的组件中，则在当前组件中，随时可以取到ModelA的最新值
+// 可以绑定多个Model
+function mapStateToProps({ModelA}) {
+  return {ModelA};
+}
+
+// 关联 model
+// 正式调用模型传递函数，完成模型绑定
+export default connect(mapStateToProps)(MyComponent);
+</code></pre></div><h4 id="_4-2-2-展示组件"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-2-2-%E5%B1%95%E7%A4%BA%E7%BB%84%E4%BB%B6" class="header-anchor">#</a> 4.2.2 展示组件</h4> <blockquote><p>展示通过 <code>props</code> 传递到组件内部数据；传入的数据来源于容器组件向展示组件的<code>props</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>import React, { Component, PropTypes } from 'react';
+
+// 组件本身
+// 所需要的数据通过 Container Component 通过 props 传递下来
+const MyComponent = (props)=&gt;{}
+MyComponent.propTypes = {};
+
+// 并不会监听数据
+export default MyComponent;
+</code></pre></div><h4 id="_4-2-3-设置路由"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-2-3-%E8%AE%BE%E7%BD%AE%E8%B7%AF%E7%94%B1" class="header-anchor">#</a> 4.2.3 设置路由</h4> <div class="language- extra-class"><pre class="language-text"><code>// .src/router.js
+import React, { PropTypes } from 'react';
+import { Router, Route } from 'dva/router';
+import Users from './routes/Users';
+
+export default function({ history }) {
+  return (
+    &lt;Router history={history}&gt;
+      &lt;Route path="/users" component={Users} /&gt;
+    &lt;/Router&gt;
+  );
+};
+</code></pre></div><p><strong>容器组件雏形</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// .src/routes/Users.jsx
+import React, { PropTypes } from 'react';
+
+function Users() {
+  return (
+    &lt;div&gt;User Router Component&lt;/div&gt;
+  );
+}
+
+export default Users;
+</code></pre></div><h4 id="_4-2-4-设计容器组件"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-2-4-%E8%AE%BE%E8%AE%A1%E5%AE%B9%E5%99%A8%E7%BB%84%E4%BB%B6" class="header-anchor">#</a> 4.2.4 设计容器组件</h4> <blockquote><p>自顶向下的设计方法：先设计容器组件，再逐步细化内部的展示容器</p></blockquote> <p>组件的定义方式</p> <div class="language- extra-class"><pre class="language-text"><code>// 方法一： es6 的写法，当组件设计react生命周期时，可采用这种写法
+// 具有生命周期的组件，可以在接收到传入数据变化时，自定义执行方法，有自己的行为模式
+// 比如在组件生成后调用xx请求(componentDidMount)、可以自己决定要不要更新渲染(shouldComponentUpdate)等
+class App extends React.Component({});
+
+// 方法二： stateless 的写法，定义无状态组件
+// 无状态组件，仅仅根据传入的数据更新，修改自己的渲染内容
+const App = (props) =&gt; ({});
+</code></pre></div><p>容器组件：</p> <div class="language- extra-class"><pre class="language-text"><code>// ./src/routes/Users.jsx
+import React, { Component, PropTypes } from 'react';
+
+// 引入展示组件 （暂时都没实现）
+import UserList from '../components/Users/UserList';
+import UserSearch from '../components/Users/UserSearch';
+import UserModal from '../components/Users/UserModal';
+
+// 引入css样式表
+import styles from './style.less'
+
+function Users() {
+
+  // 向userListProps中传入静态数据
+  const userSearchProps = {};
+  const userListProps = {
+    total: 3,
+    current: 1,
+    loading: false,
+    dataSource: [
+      {
+        name: '张三',
+        age: 23,
+        address: '成都',
+      },
+      {
+        name: '李四',
+        age: 24,
+        address: '杭州',
+      },
+      {
+        name: '王五',
+        age: 25,
+        address: '上海',
+      },
+    ],
+  };
+  const userModalProps = {};
+
+  return (
+    &lt;div className={styles.normal}&gt;
+      {/* 用户筛选搜索框 */}
+      &lt;UserSearch {...userSearchProps} /&gt;
+      {/* 用户信息展示列表 */}
+      &lt;UserList {...userListProps} /&gt;
+      {/* 添加用户 &amp; 修改用户弹出的浮层 */}
+      &lt;UserModal {...userModalProps} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+// 很关键的对外输出export；使外部可通过import引用使用此组件
+export default Users;
+</code></pre></div><p>展示组件UserList</p> <div class="language- extra-class"><pre class="language-text"><code>// ./src/components/Users/UserList.jsx
+import React, { Component, PropTypes } from 'react';
+
+// 采用antd的UI组件
+import { Table, message, Popconfirm } from 'antd';
+
+// 采用 stateless 的写法
+const UserList = ({
+    total,
+    current,
+    loading,
+    dataSource,
+}) =&gt; {
+  const columns = [{
+    title: '姓名',
+    dataIndex: 'name',
+    key: 'name',
+    render: (text) =&gt; &lt;a href="#"&gt;{text}&lt;/a&gt;,
+  }, {
+    title: '年龄',
+    dataIndex: 'age',
+    key: 'age',
+  }, {
+    title: '住址',
+    dataIndex: 'address',
+    key: 'address',
+  }, {
+    title: '操作',
+    key: 'operation',
+    render: (text, record) =&gt; (
+      &lt;p&gt;
+        &lt;a onClick={()=&gt;{}}&gt;编辑&lt;/a&gt;
+         
+        &lt;Popconfirm title="确定要删除吗？" onConfirm={()=&gt;{}}&gt;
+          &lt;a&gt;删除&lt;/a&gt;
+        &lt;/Popconfirm&gt;
+      &lt;/p&gt;
+    ),
+  }];
+
+  // 定义分页对象
+  const pagination = {
+    total,
+    current,
+    pageSize: 10,
+    onChange: ()=&gt;{},
+  };
+
+
+  // 此处的Table标签使用了antd组件，传入的参数格式是由antd组件库本身决定的
+  // 此外还需要在index.js中引入antd  import 'antd/dist/antd.css'
+  return (
+    &lt;div&gt;
+      &lt;Table
+        columns={columns}
+        dataSource={dataSource}
+        loading={loading}
+        rowKey={record =&gt; record.id}
+        pagination={pagination}
+      /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default UserList;
+</code></pre></div><h3 id="_4-3-添加reducer"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-3-%E6%B7%BB%E5%8A%A0reducer" class="header-anchor">#</a> 4.3 添加Reducer</h3> <blockquote><p>在整个应用中，只有<code>model</code>中的<code>reducer</code>函数可以直接修改自己所在<code>model</code>的<code>state</code>参数，其余都是非法操作；
+并且必须使用<code>return {...state}</code>的形式进行修改</p></blockquote> <h4 id="_4-3-1-第一步-实现reducer函数"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-3-1-%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%9E%E7%8E%B0reducer%E5%87%BD%E6%95%B0" class="header-anchor">#</a> 4.3.1 第一步：实现reducer函数</h4> <div class="language- extra-class"><pre class="language-text"><code>// models/users.js
+// 使用静态数据返回，把userList中的静态数据移到此处
+// querySuccess这个action的作用在于，修改了model的数据
+export default {
+  namespace: 'users',
+  state： {}，
+  subscriptions: {},
+  effects: {},
+  reducers: {
+    querySuccess(state){
+        const mock = {
+          total: 3,
+          current: 1,
+          loading: false,
+          list: [
+            {
+              id: 1,
+              name: '张三',
+              age: 23,
+              address: '成都',
+            },
+            {
+              id: 2,
+              name: '李四',
+              age: 24,
+              address: '杭州',
+            },
+            {
+              id: 3,
+              name: '王五',
+              age: 25,
+              address: '上海',
+            },
+          ]
+        };
+        // return 的内容是一个对象，涵盖原state中的所有属性，以实现“更新替换”的效果
+        return {...state, ...mock, loading: false};
+      }
+  }
+}
+</code></pre></div><h4 id="_4-3-2-第二步-关联model中的数据源"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-3-2-%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%85%B3%E8%81%94model%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%BA%90" class="header-anchor">#</a> 4.3.2 第二步：关联Model中的数据源</h4> <div class="language- extra-class"><pre class="language-text"><code>// routes/Users.jsx
+
+import React, { PropTypes } from 'react';
+
+// 最后用到了connect函数，需要在头部预先引入connect
+import { connect } from 'dva';
+
+function Users({ location, dispatch, users }) {
+
+  const {
+    loading, list, total, current,
+    currentItem, modalVisible, modalType
+    } = users;
+
+  const userSearchProps={};
+
+  // 使用传入的数据源，进行数据渲染
+  const userListProps={
+    dataSource: list,
+    total,
+    loading,
+    current,
+  };
+  const userModalProps={};
+
+  return (
+    &lt;div className={styles.normal}&gt;
+      {/* 用户筛选搜索框 */}
+      &lt;UserSearch {...userSearchProps} /&gt;
+      {/* 用户信息展示列表 */}
+      &lt;UserList {...userListProps} /&gt;
+      {/* 添加用户 &amp; 修改用户弹出的浮层 */}
+      &lt;UserModal {...userModalProps} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+// 声明组件的props类型
+Users.propTypes = {
+  users: PropTypes.object,
+};
+
+// 指定订阅数据，并且关联到users中
+function mapStateToProps({ users }) {
+  return {users};
+}
+
+// 建立数据关联关系
+export default connect(mapStateToProps)(Users);
+</code></pre></div><h4 id="_4-3-3-第三步-通过发起action-在组件中获取model中的数据"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-3-3-%E7%AC%AC%E4%B8%89%E6%AD%A5-%E9%80%9A%E8%BF%87%E5%8F%91%E8%B5%B7action-%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%AD%E8%8E%B7%E5%8F%96model%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE" class="header-anchor">#</a> 4.3.3 第三步：通过发起Action，在组件中获取Model中的数据</h4> <div class="language- extra-class"><pre class="language-text"><code>// models/users.js
+// 在组件生成后发出action，示例：
+componentDidMount() {
+  this.props.dispatch({
+    type: 'model/action',     // type对应action的名字
+  });
+}
+
+// 在本次实践中，在访问/users/路由时，就是我们获取用户数据的时机
+// 因此把dispatch移至subscription中
+// subcription，订阅(或是监听)一个数据源，然后根据条件dispatch对应的action
+// 数据源可以是当前的时间、服务器的 websocket 连接、keyboard 输入、geolocation 变化、history 路由变化等等  
+// 此处订阅的数据源就是路由信息，当路由为/users，则派发'querySuccess'这个effects方法
+subscriptions: {
+    setup({ dispatch, history }) {
+      history.listen(location =&gt; {
+        if (location.pathname === '/users') {
+          dispatch({
+            type: 'querySuccess',
+            payload: {}
+          });
+        }
+      });
+    },
+  },
+</code></pre></div><h4 id="_4-3-4-第四步-在index-js中添加models"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-3-4-%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%9C%A8index-js%E4%B8%AD%E6%B7%BB%E5%8A%A0models" class="header-anchor">#</a> 4.3.4 第四步： 在index.js中添加models</h4> <div class="language- extra-class"><pre class="language-text"><code>// model必须在此完成注册，才能全局有效
+// index.js
+app.model(require('./models/users.js'));
+</code></pre></div><h4 id="_4-4-添加effects"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-4-%E6%B7%BB%E5%8A%A0effects" class="header-anchor">#</a> 4.4 添加Effects</h4> <blockquote><div class="language- extra-class"><pre class="language-text"><code>Effects`的作用在于处理异步函数，控制数据流程。
+因为在真实场景中，数据都来自服务器，需要在发起异步请求获得返回值后再设置数据，更新`state`。
+因此我们往往在`Effects`中调用`reducer
+</code></pre></div></blockquote> <div class="language- extra-class"><pre class="language-text"><code>export default {
+  namespace: 'users',
+  state： {}，
+  subscriptions: {},
+  effects: {
+    // 添加effects函数
+    // call与put是dva的函数
+    // call调用执行一个函数
+    // put则是dispatch执行一个action
+    // select用于访问其他model
+    *query({ payload }, { select, call, put }) {
+        yield put({ type: 'showLoading' });
+        const { data } = yield call(query);
+        if (data) {
+          yield put({
+            type: 'querySuccess',
+            payload: {
+              list: data.data,
+              total: data.page.total,
+              current: data.page.current
+            }
+          });
+        }
+      },
+    },
+  reducers: {}
+}
+
+
+
+// 添加请求处理   包含了一个ajax请求
+// models/users.js
+import request from '../utils/request';
+import qs from 'qs';
+async function query(params) {
+  return request(`/api/users?${qs.stringify(params)}`);
+}
+</code></pre></div><h4 id="_4-5-把请求处理分离到service中"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_4-5-%E6%8A%8A%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E5%88%86%E7%A6%BB%E5%88%B0service%E4%B8%AD" class="header-anchor">#</a> 4.5 把请求处理分离到service中</h4> <blockquote><p>用意在于分离(可复用的)ajax请求</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// services/users.js
+import request from '../utils/request';
+import qs from 'qs';
+export async function query(params) {
+  return request(`/api/users?${qs.stringify(params)}`);
+}
+
+// 在models中引用
+// models/users.js
+import {query} from '../services/users';
+</code></pre></div><h2 id="五、使用dva框架和直接使用redux写法的区别"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#%E4%BA%94%E3%80%81%E4%BD%BF%E7%94%A8dva%E6%A1%86%E6%9E%B6%E5%92%8C%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8redux%E5%86%99%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB" class="header-anchor">#</a> 五、使用dva框架和直接使用redux写法的区别</h2> <h3 id="_5-1-使用-redux"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_5-1-%E4%BD%BF%E7%94%A8-redux" class="header-anchor">#</a> 5.1 使用 redux</h3> <div class="language- extra-class"><pre class="language-text"><code>// action.js
+
+export const REQUEST_TODO = 'REQUEST_TODO';
+export const RESPONSE_TODO = 'RESPONSE_TODO';
+
+const request = count =&gt; ({type: REQUEST_TODO, payload: {loading: true, count}});
+
+const response = count =&gt; ({type: RESPONSE_TODO, payload: {loading: false, count}});
+
+export const fetch = count =&gt; {
+  return (dispatch) =&gt; {
+    dispatch(request(count));
+
+    return new Promise(resolve =&gt; {
+      setTimeout(() =&gt; {
+        resolve(count + 1);
+      }, 1000)
+    }).then(data =&gt; {
+      dispatch(response(data))
+    })
+  }
+}
+//reducer.js
+import { REQUEST_TODO, RESPONSE_TODO } from './actions';
+
+export default (state = {
+  loading: false,
+  count: 0
+}, action) =&gt; {
+  switch (action.type) {
+    case REQUEST_TODO:
+      return {...state, ...action.payload};
+    case RESPONSE_TODO:
+      return {...state, ...action.payload};
+    default:
+      return state;
+  }
+}
+// app.js
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as actions from './actions';
+
+const App = ({fetch, count, loading}) =&gt; {
+  return (
+    &lt;div&gt;
+      {loading ? &lt;div&gt;loading...&lt;/div&gt; : &lt;div&gt;{count}&lt;/div&gt;}
+      &lt;button onClick={() =&gt; fetch(count)}&gt;add&lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+
+function mapStateToProps(state) {
+  return state;
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+//index.js
+import { render } from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux'
+import thunkMiddleware from 'redux-thunk';
+
+import reducer from './app/reducer';
+import App from './app/app';
+
+const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+
+render(
+  &lt;Provider store={store}&gt;
+    &lt;App/&gt;
+  &lt;/Provider&gt;
+  ,
+  document.getElementById('app')
+)
+</code></pre></div><h3 id="_5-2-使用dva"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_5-2-%E4%BD%BF%E7%94%A8dva" class="header-anchor">#</a> 5.2 使用dva</h3> <div class="language- extra-class"><pre class="language-text"><code>// model.js
+export default {
+  namespace: 'demo',
+  state: {
+    loading: false,
+    count: 0
+  },
+  reducers: {
+    request(state, payload) {
+      return {...state, ...payload};
+    },
+    response(state, payload) {
+      return {...state, ...payload};
+    }
+  },
+  effects: {
+    *'fetch'(action, {put, call}) {
+      yield put({type: 'request', loading: true});
+
+      let count = yield call((count) =&gt; {
+        return new Promise(resolve =&gt; {
+          setTimeout(() =&gt; {
+            resolve(count + 1);
+          }, 1000);
+        });
+      }, action.count);
+
+      yield put({
+        type: 'response',
+        loading: false,
+        count
+      });
+    }
+  }
+}
+//app.js
+
+import React from 'react'
+import { connect } from 'dva';
+
+const App = ({fetch, count, loading}) =&gt; {
+  return (
+    &lt;div&gt;
+      {loading ? &lt;div&gt;loading...&lt;/div&gt; : &lt;div&gt;{count}&lt;/div&gt;}
+      &lt;button onClick={() =&gt; fetch(count)}&gt;add&lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+
+function mapStateToProps(state) {
+  return state.demo;
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetch(count){
+      dispatch({type: 'demo/fetch', count});
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+// index.js
+import dva from 'dva';
+import model from './model';
+import App from './app';
+
+const app = dva();
+
+app.use({});
+
+app.model(model);
+
+app.router(() =&gt; &lt;App /&gt;);
+
+app.start();
+</code></pre></div><ul><li>使用 <code>redux</code> 需要拆分出<code>action</code>模块和<code>reducer</code>模块</li> <li><code>dva</code>将<code>action</code>和<code>reducer</code>封装到<code>model</code>中，异步流程采用<code>Generator</code>处理</li></ul> <h2 id="六、使用axios统一处理"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#%E5%85%AD%E3%80%81%E4%BD%BF%E7%94%A8axios%E7%BB%9F%E4%B8%80%E5%A4%84%E7%90%86" class="header-anchor">#</a> 六、使用axios统一处理</h2> <h3 id="_6-1-示例代码"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_6-1-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" class="header-anchor">#</a> 6.1 示例代码</h3> <div class="language- extra-class"><pre class="language-text"><code>// request.js
+import axios from 'axios';
+import NProgress from 'nprogress';
+import { notification, message } from 'antd';
+import { routerRedux } from 'dva/router';
+import store from '../index';
+
+/**
+ * 一、功能：
+ * 1. 统一拦截http错误请求码；
+ * 2. 统一拦截业务错误代码；
+ * 3. 统一设置请求前缀
+ * |-- 每个 http 加前缀 baseURL = /api/v1，从配置文件中获取 apiPrefix
+ * 4. 配置异步请求过渡状态：显示蓝色加载条表示正在请求中，避免给用户页面假死的不好体验。
+ * |-- 使用 NProgress 工具库。
+ * 
+ * 二、引包：
+ * |-- axios：http 请求工具库
+ * |-- NProgress：异步请求过度条，在浏览器主体部分顶部显示蓝色小条
+ * |-- notification：Antd组件 &gt; 处理错误响应码提示信息
+ * |-- routerRedux：dva/router对象，用于路由跳转，错误响应码跳转相应页面
+ * |-- store：dva中对象，使用里面的 dispatch 对象，用于触发路由跳转
+ */
+
+// 设置全局参数，如响应超市时间，请求前缀等。
+axios.defaults.timeout = 5000
+axios.defaults.baseURL = '/api/v1';
+axios.defaults.withCredentials = true;
+
+// 状态码错误信息
+const codeMessage = {
+  200: '服务器成功返回请求的数据。',
+  201: '新建或修改数据成功。',
+  202: '一个请求已经进入后台排队（异步任务）。',
+  204: '删除数据成功。',
+  400: '发出的请求有错误，服务器没有进行新建或修改数据的操作。',
+  401: '用户没有权限（令牌、用户名、密码错误）。',
+  403: '用户得到授权，但是访问是被禁止的。',
+  404: '发出的请求针对的是不存在的记录，服务器没有进行操作。',
+  406: '请求的格式不可得。',
+  410: '请求的资源被永久删除，且不会再得到的。',
+  422: '当创建一个对象时，发生一个验证错误。',
+  500: '服务器发生错误，请检查服务器。',
+  502: '网关错误。',
+  503: '服务不可用，服务器暂时过载或维护。',
+  504: '网关超时。',
+};
+
+// 添加一个请求拦截器，用于设置请求过渡状态
+axios.interceptors.request.use((config) =&gt; {
+  // 请求开始，蓝色过渡滚动条开始出现
+  NProgress.start();
+  return config;
+}, (error) =&gt; {
+  return Promise.reject(error);
+});
+
+// 添加一个返回拦截器
+axios.interceptors.response.use((response) =&gt; {
+  // 请求结束，蓝色过渡滚动条消失
+  NProgress.done();
+  return response;
+}, (error) =&gt; {
+  // 请求结束，蓝色过渡滚动条消失
+  // 即使出现异常，也要调用关闭方法，否则一直处于加载状态很奇怪
+  NProgress.done();
+  return Promise.reject(error);
+});
+
+export default function request (opt) {
+  // 调用 axios api，统一拦截
+  return axios(opt)
+    .then((response) =&gt; 
+      // &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 请求成功 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+      console.log(`【${opt.method} ${opt.url}】请求成功，响应数据：%o`, response);
+
+      // 打印业务错误提示
+      if (response.data &amp;&amp; response.data.code != '0000') {
+        message.error(response.data.message);
+      }
+
+      return { ...response.data };
+    })
+    .catch((error) =&gt; {
+      // &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 请求失败 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+      // 请求配置发生的错误
+      if (!error.response) {
+        return console.log('Error', error.message);
+      }
+
+      // 响应时状态码处理 
+      const status = error.response.status;
+      const errortext = codeMessage[status] || error.response.statusText;
+      
+      notification.error({
+        message: `请求错误 ${status}`,
+        description: errortext,
+      });
+      
+      // 存在请求，但是服务器的返回一个状态码，它们都在2xx之外
+      const { dispatch } = store;
+
+      if (status === 401) {
+        dispatch(routerRedux.push('/user/login'));
+      } else if (status === 403) {
+        dispatch(routerRedux.push('/exception/403'));
+      } else if (status &lt;= 504 &amp;&amp; status &gt;= 500) {
+        dispatch(routerRedux.push('/exception/500'));
+      } else if (status &gt;= 404 &amp;&amp; status &lt; 422) {
+        dispatch(routerRedux.push('/exception/404'));
+      }
+
+      // 开发时使用，上线时删除
+      console.log(`【${opt.method} ${opt.url}】请求失败，响应数据：%o`, error.response);
+
+      return { code: status, message: errortext }; 
+    });
+}
+</code></pre></div><h3 id="_6-2-明确响应体"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_6-2-%E6%98%8E%E7%A1%AE%E5%93%8D%E5%BA%94%E4%BD%93" class="header-anchor">#</a> 6.2 明确响应体</h3> <blockquote><p>以微信小程序为例，请求响应数据分为两部分：</p></blockquote> <ul><li>网络请求是否成功；</li> <li>业务场景值。即便网络请求成功了，业务处理上可能有时也会出错，比如校验不通过</li></ul> <p>我们在拦截响应时要分别对这两部分进行处理</p> <div class="language- extra-class"><pre class="language-text"><code>response = {
+  status: 200,                // 网络请求状态。
+  statusText: 'xxx',
+  data: {
+    code: '1001',             // 业务请求状态。这里 '0000' 表示业务没问题，其它都有问题
+    message: 'yyy',
+    data: {  },
+  }
+}
+</code></pre></div><h3 id="_6-3-依赖包分析"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_6-3-%E4%BE%9D%E8%B5%96%E5%8C%85%E5%88%86%E6%9E%90" class="header-anchor">#</a> 6.3 依赖包分析</h3> <div class="language- extra-class"><pre class="language-text"><code>import axios from 'axios';
+import NProgress from 'nprogress';
+import { notification, message } from 'antd';
+import { routerRedux } from 'dva/router';
+import store from '../index';
+</code></pre></div><blockquote><p><code>import store from '../index';</code>这是 <code>dva</code> 中导出的对象。即下面代码最终导出的 <code>app._store</code>，引入它是因为 <code>dispatch</code> 对象在里面，我们需要 dispatch 对象进行路由跳转</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>// index.js
+import dva from 'dva';
+import { message } from 'antd';
+import { createBrowserHistory as createHistory } from 'history';
+
+// 1. Initialize
+const app = dva({
+  history: createHistory(),
+});
+
+// 2. Plugins
+app.use(createLoading());
+
+// 3. Model
+app.model(require('./models/app/global').default);
+
+// 4. Router
+app.router(require('./router').default);
+
+// 5. Start
+app.start('#root');
+
+export default app._store;
+</code></pre></div><h3 id="_6-4-axios-全局配置"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_6-4-axios-%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE" class="header-anchor">#</a> 6.4 axios 全局配置</h3> <div class="language- extra-class"><pre class="language-text"><code>// 设置全局参数，如响应超市时间，请求前缀等。
+axios.defaults.timeout = 5000
+axios.defaults.baseURL = '/api/v1';
+axios.defaults.withCredentials = true;
+</code></pre></div><blockquote><p>axios 可以设置很多全局配置，具体可参阅 https://segmentfault.com/a/1190000008470355</p></blockquote> <h3 id="_6-5-加载-nprogress-过渡组件"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_6-5-%E5%8A%A0%E8%BD%BD-nprogress-%E8%BF%87%E6%B8%A1%E7%BB%84%E4%BB%B6" class="header-anchor">#</a> 6.5 加载 NProgress 过渡组件</h3> <div class="language- extra-class"><pre class="language-text"><code>/ 添加一个请求拦截器，用于设置请求过渡状态
+axios.interceptors.request.use((config) =&gt; {
+  // 请求开始，蓝色过渡滚动条开始出现
+  NProgress.start();
+  return config;
+}, (error) =&gt; {
+  return Promise.reject(error);
+});
+
+// 添加一个返回拦截器
+axios.interceptors.response.use((response) =&gt; {
+  // 请求结束，蓝色过渡滚动条消失
+  NProgress.done();
+  return response;
+}, (error) =&gt; {
+  // 请求结束，蓝色过渡滚动条消失
+  // 即使出现异常，也要调用关闭方法，否则一直处于加载状态很奇怪
+  NProgress.done();
+  return Promise.reject(error);
+});
+</code></pre></div><blockquote><p><code>NProgress</code> 的使用主要有两个方法，当调用 <code>NProgress.start();</code> 时在浏览器顶部就会出现蓝色小条，当调用 <code>NProgress.done();</code> 蓝色小条就会消失。我们分别在请求开始和接收到响应调用这两个方法</p></blockquote> <p><img src="./dva_files/6693922-948c3efcfeeaf4fd.gif" alt="img" class="medium-zoom-image"></p> <h3 id="_6-6-网络请求成功处理"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_6-6-%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E6%88%90%E5%8A%9F%E5%A4%84%E7%90%86" class="header-anchor">#</a> 6.6 网络请求成功处理</h3> <div class="language- extra-class"><pre class="language-text"><code>.then((response) =&gt; 
+      // &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 请求成功 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+      console.log(`【${opt.method} ${opt.url}】请求成功，响应数据：%o`, response);
+
+      // 打印业务错误提示
+      if (response.data &amp;&amp; response.data.code != '0000') {
+        message.error(response.data.message);
+      }
+
+      return { ...response.data };
+    })
+</code></pre></div><blockquote><p>网络请求状态码为 <code>200-300</code> 表示成功，此时还应该判断业务处理是否成功。这个根据具体项目具体规定，比如微信小程序有一套场景值。在实际项目中可以自行规定 <code>code = '0000'</code> 业务处理完全没问题，<code>code = '1111'</code>校验不通过，<code>code = '2222'</code> 数据库出错等等。</p></blockquote> <ul><li>最后别忘了要返回具体对象 <code>{ ...response.data }</code></li></ul> <h3 id="_6-7-网络请求失败处理"><a href="http://interview.poetries.top/principle-docs/react/02-Dva%E6%80%BB%E7%BB%93.html#_6-7-%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86" class="header-anchor">#</a> 6.7 网络请求失败处理</h3> <div class="language- extra-class"><pre class="language-text"><code>// 状态码错误信息
+const codeMessage = {
+  200: '服务器成功返回请求的数据。',
+  201: '新建或修改数据成功。',
+  202: '一个请求已经进入后台排队（异步任务）。',
+  204: '删除数据成功。',
+  400: '发出的请求有错误，服务器没有进行新建或修改数据的操作。',
+  401: '用户没有权限（令牌、用户名、密码错误）。',
+  403: '用户得到授权，但是访问是被禁止的。',
+  404: '发出的请求针对的是不存在的记录，服务器没有进行操作。',
+  406: '请求的格式不可得。',
+  410: '请求的资源被永久删除，且不会再得到的。',
+  422: '当创建一个对象时，发生一个验证错误。',
+  500: '服务器发生错误，请检查服务器。',
+  502: '网关错误。',
+  503: '服务不可用，服务器暂时过载或维护。',
+  504: '网关超时。',
+};
+
+// ...........
+
+.catch((error) =&gt; {
+      // &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 请求失败 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+      // 请求配置发生的错误
+      if (!error.response) {
+        return console.log('Error', error.message);
+      }
+
+      // 响应时状态码处理 
+      const status = error.response.status;
+      const errortext = codeMessage[status] || error.response.statusText;
+      
+      notification.error({
+        message: `请求错误 ${status}`,
+        description: errortext,
+      });
+      
+      // 存在请求，但是服务器的返回一个状态码，它们都在2xx之外
+      const { dispatch } = store;
+
+      if (status === 401) {
+        dispatch(routerRedux.push('/user/login'));
+      } else if (status === 403) {
+        dispatch(routerRedux.push('/exception/403'));
+      } else if (status &lt;= 504 &amp;&amp; status &gt;= 500) {
+        dispatch(routerRedux.push('/exception/500'));
+      } else if (status &gt;= 404 &amp;&amp; status &lt; 422) {
+        dispatch(routerRedux.push('/exception/404'));
+      }
+
+      // 开发时使用，上线时删除
+      console.log(`【${opt.method} ${opt.url}】请求失败，响应数据：%o`, error.response);
+
+      return { code: status, message: errortext }; 
+    });
+</code></pre></div><ul><li>网络请求失败，首先需要根据 <code>status</code> 打印提示消息，告诉用户为什么请求失败。如响应码为 <code>401</code>，那么提示用户的文字就会是 用户没有权限（令牌、用户名、密码错误）</li> <li>如果是 <code>401</code> 错误，表示用户没有权限访问或者用户名密码输入错误，应该跳转到登录页面：`dispatch(routerRedux.push('/user/login'));</li></ul></div> </body></html>

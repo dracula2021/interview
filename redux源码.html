@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)http://interview.poetries.top/principle-docs/react/06-Redux%E4%B9%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html -->
+<html lang="en-US" class=" "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <title>一、index.js | 面试指南</title>
+    
+    <link rel="icon" href="./redux源码_files/logo.png">
+    <link rel="manifest" href="http://interview.poetries.top/manifest.json">
+    <link rel="apple-touch-icon" href="http://interview.poetries.top/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="http://interview.poetries.top/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    
+    
+    
+    
+    
+    
+    
+    <link rel="preload" href="./redux源码_files/0.styles.a3a6df6c.css" as="style"><link rel="preload" href="./redux源码_files/app.25cf4eee.js.下载" as="script"><link rel="preload" href="./redux源码_files/5.bc663a4c.js.下载" as="script"><link rel="preload" href="./redux源码_files/4.1aaf03c6.js.下载" as="script"><link rel="preload" href="./redux源码_files/12.ac0bc851.js.下载" as="script"><link rel="preload" href="./redux源码_files/11.3e5297f1.js.下载" as="script"><link rel="prefetch" href="./redux源码_files/1.d83c2af0.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/10.fdecf69b.js"><link rel="prefetch" href="./redux源码_files/100.df83f687.js.下载"><link rel="prefetch" href="./redux源码_files/101.3986f029.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/102.1468be32.js"><link rel="prefetch" href="./redux源码_files/103.bfef2896.js.下载"><link rel="prefetch" href="./redux源码_files/104.1731bbb1.js.下载"><link rel="prefetch" href="./redux源码_files/105.710b118c.js.下载"><link rel="prefetch" href="./redux源码_files/106.b955d37d.js.下载"><link rel="prefetch" href="./redux源码_files/107.6f79a916.js.下载"><link rel="prefetch" href="./redux源码_files/108.34ee5a8e.js.下载"><link rel="prefetch" href="./redux源码_files/109.f6c05e4d.js.下载"><link rel="prefetch" href="./redux源码_files/110.a375ddec.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/111.bcc5c187.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/112.afcfef56.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/113.2e7c6e37.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/114.9cfdb334.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/115.063815ec.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/116.4e29ee01.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/117.b106fd0d.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/118.e4e784f7.js"><link rel="prefetch" href="./redux源码_files/119.94fe014a.js.下载"><link rel="prefetch" href="./redux源码_files/13.57028e74.js.下载"><link rel="prefetch" href="./redux源码_files/14.043c3e8a.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/15.a6d0032e.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/16.6094fda8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/17.f17aa05b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/18.9732bfb3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/19.2c38a6bb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/20.92742304.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/21.28c8a661.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/22.3222a772.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/23.8192ecea.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/24.b5156b88.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/25.034d5e81.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/26.c78d8f63.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/27.cd94c89c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/28.b2c8e24c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/29.e9a30c2c.js"><link rel="prefetch" href="./redux源码_files/3.f5ea6e07.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/30.2bd67425.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/31.6333035e.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/32.1a34dfa0.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/33.b5863ac0.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/34.cababd6c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/35.0b09d4a2.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/36.8f89ed73.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/37.38d590c3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/38.4799c402.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/39.c9d13f25.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/40.21e1dcb8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/41.16e0641a.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/42.9ce6fd83.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/43.8936e729.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/44.5ebdd233.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/45.ce59a54c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/46.b6f1380b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/47.5fe8aac4.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/48.a31741eb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/49.16132e72.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/50.ca74d5c9.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/51.f21f79ee.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/52.6ff2b7c5.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/53.003482ca.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/54.136b1210.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/55.5d00c7ca.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/56.e5b5668d.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/57.9275f210.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/58.dcf3e81b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/59.5cbf4407.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/6.f2ac32df.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/60.ecfb5f55.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/61.8356d65b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/62.8ca03065.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/63.a0c06a04.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/64.406f4c0f.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/65.9d0c9d57.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/66.ca2ccee4.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/67.b01df864.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/68.e99acf6a.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/69.f7dbb3b1.js"><link rel="prefetch" href="./redux源码_files/7.26b183c1.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/70.b3199540.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/71.d7c346c6.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/72.6afb9cd3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/73.80370c6b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/74.eec2a38b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/75.fdbda41f.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/76.c8a9acd3.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/77.02560728.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/78.f3bcf134.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/79.01333f71.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/8.b6777e86.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/80.a7dfb481.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/81.29a3aa15.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/82.9039f284.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/83.e29f794c.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/84.9aea4d6e.js"><link rel="prefetch" href="./redux源码_files/85.6fa07b30.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/86.b0a530f1.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/87.a2c892ff.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/88.2c0ab353.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/89.0a6986cd.js"><link rel="prefetch" href="./redux源码_files/9.7231fa75.js.下载"><link rel="prefetch" href="http://interview.poetries.top/assets/js/90.80c04201.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/91.19846beb.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/92.09ef3493.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/93.8bad40d8.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/94.f0810e7b.js"><link rel="prefetch" href="http://interview.poetries.top/assets/js/95.3a648c4f.js"><link rel="prefetch" href="./redux源码_files/96.827e7cb2.js.下载"><link rel="prefetch" href="./redux源码_files/97.cc180b8f.js.下载"><link rel="prefetch" href="./redux源码_files/98.d2138442.js.下载"><link rel="prefetch" href="./redux源码_files/99.7e99e846.js.下载">
+    <link rel="stylesheet" href="./redux源码_files/0.styles.a3a6df6c.css">
+  <style type="text/css">.medium-zoom-overlay{position:fixed;top:0;right:0;bottom:0;left:0;opacity:0;transition:opacity .3s;will-change:opacity}.medium-zoom--opened .medium-zoom-overlay{cursor:pointer;cursor:zoom-out;opacity:1}.medium-zoom-image{cursor:pointer;cursor:zoom-in;transition:transform .3s cubic-bezier(.2,0,.2,1)!important}.medium-zoom-image--hidden{visibility:hidden}.medium-zoom-image--opened{position:relative;cursor:pointer;cursor:zoom-out;will-change:transform}</style><script charset="utf-8" src="./redux源码_files/119.94fe014a.js.下载"></script><script charset="utf-8" src="./redux源码_files/1.d83c2af0.js.下载"></script><script charset="utf-8" src="./redux源码_files/13.57028e74.js.下载"></script><script charset="utf-8" src="./redux源码_files/14.043c3e8a.js.下载"></script><script charset="utf-8" src="./redux源码_files/104.1731bbb1.js.下载"></script><script charset="utf-8" src="./redux源码_files/105.710b118c.js.下载"></script><script charset="utf-8" src="./redux源码_files/85.6fa07b30.js.下载"></script><script charset="utf-8" src="./redux源码_files/7.26b183c1.js.下载"></script><script charset="utf-8" src="./redux源码_files/3.f5ea6e07.js.下载"></script><script charset="utf-8" src="./redux源码_files/9.7231fa75.js.下载"></script><script charset="utf-8" src="./redux源码_files/106.b955d37d.js.下载"></script><script charset="utf-8" src="./redux源码_files/107.6f79a916.js.下载"></script><script charset="utf-8" src="./redux源码_files/108.34ee5a8e.js.下载"></script><script charset="utf-8" src="./redux源码_files/109.f6c05e4d.js.下载"></script><script charset="utf-8" src="./redux源码_files/110.a375ddec.js.下载"></script><script charset="utf-8" src="./redux源码_files/96.827e7cb2.js.下载"></script><script charset="utf-8" src="./redux源码_files/103.bfef2896.js.下载"></script><script charset="utf-8" src="./redux源码_files/97.cc180b8f.js.下载"></script><script charset="utf-8" src="./redux源码_files/98.d2138442.js.下载"></script><script charset="utf-8" src="./redux源码_files/99.7e99e846.js.下载"></script><script charset="utf-8" src="./redux源码_files/100.df83f687.js.下载"></script><script charset="utf-8" src="./redux源码_files/101.3986f029.js.下载"></script><meta name="description" content="前端面试指南，前端面试题整理，按模块分类整理总结，打造最全面的前端面试题"><meta name="theme-color" content="#3eaf7c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png"><meta name="msapplication-TileColor" content="#000000"></head>
+  <body class="">
+    <div id="app"><div class="theme-container"><header class="navbar" style="background: rgb(255, 255, 255);"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="http://interview.poetries.top/" class="home-link router-link-active"><img src="./原理_files/logo.png" alt="面试指南" class="logo"> <span class="site-name can-hide">面试指南</span></a> <div class="links" style="background: rgb(255, 255, 255); max-width: 1771px;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value="" class="" placeholder=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div><a href="./index.html" class="nav-link">基础
+    </a></div></div><div class="nav-item"><div><a href="./进阶.html" class="nav-link">✨进阶
+    </a></div></div><div class="nav-item"><div><a href="./精选.html" class="nav-link">👍精选
+    </a></div></div><div class="nav-item"><div><a href="./高频.html" class="nav-link">🔥高频
+    </a></div></div><div class="nav-item"><div><a href="./指南.html" class="nav-link">指南
+    </a></div></div><div class="nav-item"><div><a href="./性能.html" class="nav-link">性能
+    </a></div></div><div class="nav-item"><div><a href="./综合.html" class="nav-link">综合
+    </a></div></div><div class="nav-item"><div><a href="./vue.html" class="nav-link">原理
+    </a></div></div><div class="nav-item"><div><a href="./手写.html" class="nav-link">手写
+    </a></div></div><div class="nav-item"><div><a href="./自检.html" class="nav-link">自检
+    </a></div></div><div class="nav-item"><div><a href="./面经.html" class="nav-link">⭐面经
+    </a></div></div><div class="nav-item"><div><a href="./每日一题.html" class="nav-link">💥每日一题
+    </a></div></div><div class="nav-item"><div><a href="./设计模式.html" class="nav-link">设计模式
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/algorithm-interview/note/01-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E2%80%94%E2%80%94%E4%BB%8E0%E5%88%B01%E6%8E%8C%E6%8F%A1%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89.html" class="nav-link">
+  </a></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="拓展阅读" class="dropdown-title"><span class="title">拓展阅读</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display: none;"><li class="dropdown-item"><h4>专题</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-base-docs/compute-docs/Linux.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-mobile-docs/h5-docs/1-%E5%A4%A7%E5%8E%82%20H5%20%E5%BC%80%E5%8F%91%E6%A6%82%E8%BF%B0.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-css-inspiration-docs/css-docs/note/01-%E6%B5%8F%E8%A7%88%E5%99%A8.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/learn-vue-base/base/1-Vue%20CLI%203%20%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-react-docs/react-web-action/01-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%97%B6%E4%BB%A3.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-micro-docs/docs/01-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E8%AF%9E%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-engineering-docs/docs/npm-script.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-ts-axios-docs/ts-axios/chapter1/" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-algorithm-docs/algorithm/prepare/01-%E5%A6%82%E4%BD%95%E7%B3%BB%E7%BB%9F%E9%AB%98%E6%95%88%E5%9C%B0%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      浏览器原理
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/http-protocol/notes/base/01-HTTP%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      HTTP基础
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/webpack.html" class="nav-link">webpack
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/npm-script.html" class="nav-link">npm工作流
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/canvas.html" class="nav-link">Canvas
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/Taro.html" class="nav-link">Taro原理
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Node学习指南
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/vue-analysis/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Vue源码分析
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-blog-docs/blog-docs/javascript/-Ajax%E6%80%BB%E7%BB%93%E7%AF%87.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      日常积累
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://blog.poetries.top/archives/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      博文
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="background: rgb(255, 255, 255);"><nav class="nav-links"><div class="nav-item"><div><a href="http://interview.poetries.top/docs/base.html" class="nav-link">基础
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/simply.html" class="nav-link">✨进阶
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/excellent-docs/1-HTML%E6%A8%A1%E5%9D%97.html" class="nav-link">👍精选
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/excellent.html" class="nav-link">🔥高频
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/guide.html" class="nav-link">指南
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/performance.html" class="nav-link">性能
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/detail-expain.html" class="nav-link">综合
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/principle-docs/comprehensive/01-%E8%99%9A%E6%8B%9FDOM%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html" class="nav-link">原理
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/handwritten.html" class="nav-link">手写
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/qa/1-%E5%89%8D%E7%AB%AF100%E9%A2%98%E8%87%AA%E6%A3%80.html" class="nav-link">自检
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/interview-exp/%E5%89%8D%E7%AB%AF%E9%9D%A2%E7%BB%8F%E6%B1%87%E6%80%BB.html" class="nav-link">⭐面经
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/days/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98.html" class="nav-link">💥每日一题
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/docs/design-pattern.html" class="nav-link">设计模式
+  </a></div></div><div class="nav-item"><div><a href="http://interview.poetries.top/algorithm-interview/note/01-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E2%80%94%E2%80%94%E4%BB%8E0%E5%88%B01%E6%8E%8C%E6%8F%A1%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89.html" class="nav-link">
+  </a></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="拓展阅读" class="dropdown-title"><span class="title">拓展阅读</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display: none;"><li class="dropdown-item"><h4>专题</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-base-docs/compute-docs/Linux.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-mobile-docs/h5-docs/1-%E5%A4%A7%E5%8E%82%20H5%20%E5%BC%80%E5%8F%91%E6%A6%82%E8%BF%B0.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-css-inspiration-docs/css-docs/note/01-%E6%B5%8F%E8%A7%88%E5%99%A8.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/learn-vue-base/base/1-Vue%20CLI%203%20%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-react-docs/react-web-action/01-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%97%B6%E4%BB%A3.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-micro-docs/docs/01-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E8%AF%9E%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-engineering-docs/docs/npm-script.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-ts-axios-docs/ts-axios/chapter1/" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-algorithm-docs/algorithm/prepare/01-%E5%A6%82%E4%BD%95%E7%B3%BB%E7%BB%9F%E9%AB%98%E6%95%88%E5%9C%B0%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><!----></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      浏览器原理
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="https://blog.poetries.top/http-protocol/notes/base/01-HTTP%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      HTTP基础
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/webpack.html" class="nav-link">webpack
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/npm-script.html" class="nav-link">npm工作流
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/canvas.html" class="nav-link">Canvas
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/docs/Taro.html" class="nav-link">Taro原理
+  </a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-nodejs-docs/nodejs-docs/base/01-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Node学习指南
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-vue-docs/vue-analysis/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      Vue源码分析
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li><li class="dropdown-item"><h4>其他</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><div><a href="http://interview.poetries.top/fe-blog-docs/blog-docs/javascript/-Ajax%E6%80%BB%E7%BB%93%E7%AF%87.html" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      日常积累
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li><li class="dropdown-subitem"><div><a href="http://blog.poetries.top/archives/" target="_blank" rel="noopener noreferrer" class="nav-link external"><div>
+      博文
+      <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div></a></div></li></ul></li></ul></div></div> <!----></nav> <div style="padding-left:1.5rem;"><div class="qr"><img src="./redux源码_files/qr.ee193d28.jpg" alt="poetries" width="120" height="120" loading="lazy"> <p class="we-intro">
+    关注公众号，获取更多资讯
+  </p></div></div> 
+  <ul class="sidebar-links"><li><section class="sidebar-group depth-0">
+    <p class="sidebar-heading"><span>Vue</span> <!----></p> 
+    <ul class="sidebar-links sidebar-group-items"><li>
+      <a href="./vue.html" class="sidebar-link">从源码解读Vue生命周期</a></li>
+      <li><a href="./组件的本质.html" class="sidebar-link">组件的本质</a></li>
+      <li><a href="./组件设计.html" class="sidebar-link">有状态组件的设计</a></li>
+      <li><a href="./设计vnode.html" class="sidebar-link">设计 VNode</a></li>
+      <li><a href="./vnode的h函数.html" class="sidebar-link">辅助创建 VNode 的 h 函数</a></li>
+      <li><a href="./自定义渲染.html" class="sidebar-link">自定义渲染器和异步渲染</a></li>
+      <li><a href="./渲染器的挂载.html" class="sidebar-link">渲染器之挂载</a></li>
+      <li><a href="./渲染diff.html" class="sidebar-link">渲染器的核心 Diff 算法</a></li>
+      <li><a href="./渲染器patch.html" class="sidebar-link">渲染器之patch</a></li>
+      <li><a href="./vue响应式.html" class="sidebar-link">图解 Vue 响应式原理</a></li>
+      <li><a href="./vue异步更新.html" class="sidebar-link">图解 Vue 异步更新</a></li>
+      <li><a href="./vue运行机制.html" class="sidebar-link">剖析 Vue 内部运行机制</a></li>
+      <li><a href="./模拟响应式.html" class="sidebar-link">vue响应式原理模拟</a></li>
+      <li><a href="./vuex.html" class="sidebar-link">vue状态管理之vuex</a></li>
+    </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>React</span> <!----></p> 
+      <ul class="sidebar-links sidebar-group-items">
+        <li><a href="./react.html" class="sidebar-link">React</a></li>
+        <li><a href="./dva.html" class="sidebar-link">Dva总结</a></li>
+        <li><a href="./MobX.html" class="sidebar-link">MobX总结</a></li>
+        <li><a href="./redux.html" class="sidebar-link">浅析redux</a></li>
+        <li><a href="./redux中间件.html" class="sidebar-link">Redux之浅析中间件</a></li>
+        <li><a href="./redux源码.html" class="sidebar-link">Redux之源码分析</a></li>
+        <li><a href="./redux异步action.html" class="sidebar-link">Redux之异步Action及操作</a></li>
+      </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Webpack</span> <!----></p> 
+        <ul class="sidebar-links sidebar-group-items">
+          <li><a href="./webpack打包原理.html" class="sidebar-link">Webpack4打包机制原理解析</a></li>
+          <li><a href="./热更新.html" class="sidebar-link">webpack中的HMR热更新原理剖析</a></li>
+          <li><a href="./webpack4原理.html" class="sidebar-link">从源码窥探Webpack4.x原理</a></li>
+          <li><a href="./实现webpack打包.html" class="sidebar-link">实现webpack小型打包工具</a></li>
+          <li><a href="./babel原理.html" class="sidebar-link">Babel原理及其使用</a></li>
+        </ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>综合</span> <!----></p>
+           <ul class="sidebar-links sidebar-group-items">
+             <li><a href="./虚拟dom原理.html" class="active sidebar-link">虚拟DOM原理分析</a></li>
+             <li><a href="./settimeout指南.html" class="active sidebar-link">setTimeout</a></li>
+             <li class="sidebar-sub-header"><a href="./promise.html" class="sidebar-link">浅析Promise原理</a></li>
+        <a href="./浏览器如何渲染.html" class="sidebar-link">浏览器渲染原理</a></li>
+        <li><a href="./mvvm.html" class="sidebar-link">前端面试之MVVM浅析</a></li>
+        <li><a href="./组件化.html" class="sidebar-link">前端面试之组件化</a></li>
+        <li><a href="./虚拟dom1.html" class="sidebar-link">虚拟DOM（一）</a></li>
+        <li><a href="./虚拟dom2.html" class="sidebar-link">虚拟DOM（二）</a></li>
+        <li><a href="./performance.html" class="sidebar-link">前端性能之Performance</a></li>
+      </ul></section></li></ul> 
+ </aside> <main class="page"> <div id="container" class="theme-default-content pay-content"><div class="content__default"><h2 id="一、index-js"><a href="http://interview.poetries.top/principle-docs/react/06-Redux%E4%B9%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html#%E4%B8%80%E3%80%81index-js" class="header-anchor">#</a> 一、index.js</h2> <blockquote><p>https://github.com/reactjs/redux/blob/master/src/index.js</p></blockquote> <ul><li>暴露了几个核心<code>API</code></li></ul> <div class="language- extra-class"><pre class="language-text"><code>import createStore from './createStore';
+import combineReducers from './utils/combineReducers';
+import bindActionCreators from './utils/bindActionCreators';
+import applyMiddleware from './utils/applyMiddleware';
+import compose from './utils/compose';
+
+export {
+  createStore,
+  combineReducers,
+  bindActionCreators,
+  applyMiddleware,
+  compose
+};
+</code></pre></div><h2 id="二、createstore-js"><a href="http://interview.poetries.top/principle-docs/react/06-Redux%E4%B9%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html#%E4%BA%8C%E3%80%81createstore-js" class="header-anchor">#</a> 二、createStore.js</h2> <blockquote><p>https://github.com/reactjs/redux/blob/master/src/createStore.js</p></blockquote> <ul><li><code>redux.createStore(reducer, initialState)</code> 传入了<code>reducer</code>、<code>initialState</code>，并返回一个<code>store</code>对象</li> <li><code>store</code>对象对外暴露了<code>dispatch</code>、<code>getStat</code>e、<code>subscribe</code>方法</li> <li><code>store</code>对象通过<code>getState()</code> 获取内部状态</li> <li><code>initialState</code>为 <code>store</code> 的初始状态，如果不传则为undefined</li> <li><code>store</code>对象通过<code>reducer</code>来修改内部状态</li> <li><code>store</code>对象创建的时候，内部会主动调用<code>dispatch({ type: ActionTypes.INIT })</code>;来对内部状态进行初始化。通过断点或者日志打印就可以看到，<code>store</code>对象创建的同时，<code>reducer</code>就会被调用进行初始化</li></ul> <div class="language- extra-class"><pre class="language-text"><code>import isPlainObject from './utils/isPlainObject';
+
+/**
+ * These are private action types reserved by Redux.
+ * For any unknown actions, you must return the current state.
+ * If the current state is undefined, you must return the initial state.
+ * Do not reference these action types directly in your code.
+ */
+// 初始化的时候(redux.createStore(reducer, initialState)时),传的action.type 就是这货啦
+export var ActionTypes = {
+  INIT: '@@redux/INIT'
+};
+
+/**
+ * Creates a Redux store that holds the state tree.
+ * The only way to change the data in the store is to call `dispatch()` on it.
+ *
+ * There should only be a single store in your app. To specify how different
+ * parts of the state tree respond to actions, you may combine several reducers
+ * into a single reducer function by using `combineReducers`.
+ *
+ * @param {Function} reducer A function that returns the next state tree, given
+ * the current state tree and the action to handle.
+ *
+ * @param {any} [initialState] The initial state. You may optionally specify it
+ * to hydrate the state from the server in universal apps, or to restore a
+ * previously serialized user session.
+ * If you use `combineReducers` to produce the root reducer function, this must be
+ * an object with the same shape as `combineReducers` keys.
+ *
+ * @returns {Store} A Redux store that lets you read the state, dispatch actions
+ * and subscribe to changes.
+ */
+export default function createStore(reducer, initialState) {
+  if (typeof reducer !== 'function') {
+    throw new Error('Expected the reducer to be a function.');
+  }
+
+  var currentReducer = reducer;
+  var currentState = initialState;
+  var listeners = [];
+  var isDispatching = false;
+
+  /**
+   * Reads the state tree managed by the store.
+   *
+   * @returns {any} The current state tree of your application.
+   */
+  // 这个方法没什么好讲的,返回当前的state
+  function getState() {
+    return currentState;
+  }
+
+  /**
+   * Adds a change listener. It will be called any time an action is dispatched,
+   * and some part of the state tree may potentially have changed. You may then
+   * call `getState()` to read the current state tree inside the callback.
+   *
+   * @param {Function} listener A callback to be invoked on every dispatch.
+   * @returns {Function} A function to remove this change listener.
+   */
+  // 很常见的监听函数添加方式,当store.dispatch 的时候被调用
+  // store.subscribe(listener) 返回一个方法(unscribe),可以用来取消监听
+  function subscribe(listener) {
+    listeners.push(listener);
+    var isSubscribed = true;
+
+    return function unsubscribe() {
+      if (!isSubscribed) {
+        return;
+      }
+
+      isSubscribed = false;
+      var index = listeners.indexOf(listener);
+      listeners.splice(index, 1);
+    };
+  }
+
+  /**
+   * Dispatches an action. It is the only way to trigger a state change.
+   *
+   * The `reducer` function, used to create the store, will be called with the
+   * current state tree and the given `action`. Its return value will
+   * be considered the **next** state of the tree, and the change listeners
+   * will be notified.
+   *
+   * The base implementation only supports plain object actions. If you want to
+   * dispatch a Promise, an Observable, a thunk, or something else, you need to
+   * wrap your store creating function into the corresponding middleware. For
+   * example, see the documentation for the `redux-thunk` package. Even the
+   * middleware will eventually dispatch plain object actions using this method.
+   *
+   * @param {Object} action A plain object representing “what changed”. It is
+   * a good idea to keep actions serializable so you can record and replay user
+   * sessions, or use the time travelling `redux-devtools`. An action must have
+   * a `type` property which may not be `undefined`. It is a good idea to use
+   * string constants for action types.
+   *
+   * @returns {Object} For convenience, the same action object you dispatched.
+   *
+   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
+   * return something else (for example, a Promise you can await).
+   */
+  // 以下情况会报错
+  // 1. 传入的action不是一个对象
+  // 2. 传入的action是个对象,但是action.type 是undefined
+  function dispatch(action) {
+    if (!isPlainObject(action)) {
+      throw new Error(
+        'Actions must be plain objects. ' +
+        'Use custom middleware for async actions.'
+      );
+    }
+
+    if (typeof action.type === 'undefined') {
+      throw new Error(
+        'Actions may not have an undefined "type" property. ' +
+        'Have you misspelled a constant?'
+      );
+    }
+
+    if (isDispatching) {
+      throw new Error('Reducers may not dispatch actions.');
+    }
+
+    try {
+      isDispatching = true;
+      // 就是这一句啦, 将 currentState 设置为 reducer(currentState, action) 返回的值
+      currentState = currentReducer(currentState, action);
+    } finally {
+      isDispatching = false;
+    }
+
+    // 如果有监听函数,就顺序调用
+    listeners.slice().forEach(listener =&gt; listener());
+
+    // 最后,返回传入的action
+    return action;
+  }
+
+  /**
+   * Replaces the reducer currently used by the store to calculate the state.
+   *
+   * You might need this if your app implements code splitting and you want to
+   * load some of the reducers dynamically. You might also need this if you
+   * implement a hot reloading mechanism for Redux.
+   *
+   * @param {Function} nextReducer The reducer for the store to use instead.
+   * @returns {void}
+   */
+  function replaceReducer(nextReducer) {
+    currentReducer = nextReducer;
+    dispatch({ type: ActionTypes.INIT });
+  }
+
+  // When a store is created, an "INIT" action is dispatched so that every
+  // reducer returns their initial state. This effectively populates
+  // the initial state tree.
+  //
+  // redux.createStore(reducer, initialState) 的时候, 内部会 自己调用 dispatch({ type: ActionTypes.INIT });
+  // 来完成state的初始化
+  dispatch({ type: ActionTypes.INIT });
+
+  // 返回的就是这个东东了,只有四个方法
+  return {
+    dispatch,
+    subscribe,
+    getState,
+    replaceReducer
+  };
+}
+</code></pre></div><h2 id="三、combinereducers-js"><a href="http://interview.poetries.top/principle-docs/react/06-Redux%E4%B9%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html#%E4%B8%89%E3%80%81combinereducers-js" class="header-anchor">#</a> 三、combineReducers.js</h2> <blockquote><p>https://github.com/reactjs/redux/blob/master/src/combineReducers.js</p></blockquote> <ul><li><code>redux.combineReducers(reducerMap)</code> 的作用在于合并多个<code>reducer</code>函数，并返回一个新的<code>reducer</code>函数。因此可以看到，<code>combineReducers</code> 返回了一个函数，并且该函数的参数同样是<code>state</code>、<code>reducer</code></li> <li>最终 <code>store.getState()</code>返回的<code>state</code>，大概会是这么个样子<code>{todos: xx, filter: xx}</code>。简单的说，<code>state</code>被拆分成了两份，<code>TodoReducer</code>的返回值赋值给了<code>state.todos</code>，<code>FilterReducer</code>的返回值赋值给了<code>state.filter</code></li></ul> <div class="language- extra-class"><pre class="language-text"><code>function TodoReducer(state, action) {}
+function FilterReducer(state, action) {}
+
+var finalReducers = redux.combineReducers({
+    todos: TodoReducer,
+    filter: FilterReducer
+});
+</code></pre></div><ul><li><code>combineReducers(reducerMap)</code> 传入一个对象，并返回一个全新的<code>reducer</code>。调用方式跟跟普通的<code>reducer</code>一样，也是传入<code>state</code>、<code>action</code></li> <li>通过<code>combineReducers</code>，对 <code>store</code> 的状态<code>state</code>进行拆分</li> <li><code>reducerMap的key</code>，就是 <code>state</code> 的<code>key</code>，而 调用对应的<code>reducer</code>返回的值，则是这个<code>key</code>对应的值。如上面的例子，<code>state.todos == TodoReducer(state, action)</code></li> <li><code>redux.createStore(finalReducers, initialState)</code> 调用时，同样会对 <code>state</code>进行初始化。这个初始化跟通过普通的<code>reducer</code>进行初始化没多大区别。举例来说，如果 <code>initialState.todos = undefined</code>，那么 <code>TodoReducer(state, action)</code>初始传入的<code>state</code>就是<code>undefined</code>；如果<code>initialState.todos = []</code>，那么 <code>TodoReducer(state, action)</code>初始传入的<code>state</code>就是<code>[]</code></li> <li><code>store.dispatch(action)</code>，<code>finalReducers</code> 里面，会遍历整个<code>reducerMap</code>，依次调用每个<code>reducer</code>，并将每个<code>reducer</code>返回的子<code>state</code>赋给<code>state</code>对应的<code>key</code>。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>import { ActionTypes } from '../createStore';
+import isPlainObject from '../utils/isPlainObject';
+import mapValues from '../utils/mapValues';
+import pick from '../utils/pick';
+
+/* eslint-disable no-console */
+
+function getUndefinedStateErrorMessage(key, action) {
+  var actionType = action &amp;&amp; action.type;
+  var actionName = actionType &amp;&amp; `"${actionType.toString()}"` || 'an action';
+
+  return (
+    `Reducer "${key}" returned undefined handling ${actionName}. ` +
+    `To ignore an action, you must explicitly return the previous state.`
+  );
+}
+
+function getUnexpectedStateKeyWarningMessage(inputState, outputState, action) {
+  var reducerKeys = Object.keys(outputState);
+  var argumentName = action &amp;&amp; action.type === ActionTypes.INIT ?
+    'initialState argument passed to createStore' :
+    'previous state received by the reducer';
+
+  if (reducerKeys.length === 0) {
+    return (
+      'Store does not have a valid reducer. Make sure the argument passed ' +
+      'to combineReducers is an object whose values are reducers.'
+    );
+  }
+
+  if (!isPlainObject(inputState)) {
+    return (
+      `The ${argumentName} has unexpected type of "` +
+      ({}).toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] +
+      `". Expected argument to be an object with the following ` +
+      `keys: "${reducerKeys.join('", "')}"`
+    );
+  }
+
+  var unexpectedKeys = Object.keys(inputState).filter(
+    key =&gt; reducerKeys.indexOf(key) &lt; 0
+  );
+
+  if (unexpectedKeys.length &gt; 0) {
+    return (
+      `Unexpected ${unexpectedKeys.length &gt; 1 ? 'keys' : 'key'} ` +
+      `"${unexpectedKeys.join('", "')}" found in ${argumentName}. ` +
+      `Expected to find one of the known reducer keys instead: ` +
+      `"${reducerKeys.join('", "')}". Unexpected keys will be ignored.`
+    );
+  }
+}
+
+// 对reducer做合法性检测
+// store = Redux.createStore(reducer, initialState) --&gt;
+// currentState = initialState
+// currentState = currentReducer(currentState, action);
+//
+// 从调用关系,调用时机来看, store.getState() 的初始值(currentState)
+// 为 currentReducer(initialState, { type: ActionTypes.INIT })
+//
+// 1. 在初始化阶段,reducer 传入的 state 值是 undefined,此时,需要返回初始state,且初始state不能为undefined
+// 2. 当传入不认识的 actionType 时, reducer(state, {type}) 返回的不能是undefined
+// 3. redux/ 这个 namespace 下的action 不应该做处理,直接返回 currentState 就行 (谁运气这么差会去用这种actionType...)
+function assertReducerSanity(reducers) {
+  Object.keys(reducers).forEach(key =&gt; {
+    var reducer = reducers[key];
+    var initialState = reducer(undefined, { type: ActionTypes.INIT });
+
+    if (typeof initialState === 'undefined') {
+      throw new Error(
+        `Reducer "${key}" returned undefined during initialization. ` +
+        `If the state passed to the reducer is undefined, you must ` +
+        `explicitly return the initial state. The initial state may ` +
+        `not be undefined.`
+      );
+    }
+
+    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
+    if (typeof reducer(undefined, { type }) === 'undefined') {
+      throw new Error(
+        `Reducer "${key}" returned undefined when probed with a random type. ` +
+        `Don't try to handle ${ActionTypes.INIT} or other actions in "redux/*" ` +
+        `namespace. They are considered private. Instead, you must return the ` +
+        `current state for any unknown actions, unless it is undefined, ` +
+        `in which case you must return the initial state, regardless of the ` +
+        `action type. The initial state may not be undefined.`
+      );
+    }
+  });
+}
+
+/**
+ * Turns an object whose values are different reducer functions, into a single
+ * reducer function. It will call every child reducer, and gather their results
+ * into a single state object, whose keys correspond to the keys of the passed
+ * reducer functions.
+ *
+ * @param {Object} reducers An object whose values correspond to different
+ * reducer functions that need to be combined into one. One handy way to obtain
+ * it is to use ES6 `import * as reducers` syntax. The reducers may never return
+ * undefined for any action. Instead, they should return their initial state
+ * if the state passed to them was undefined, and the current state for any
+ * unrecognized action.
+ *
+ * @returns {Function} A reducer function that invokes every reducer inside the
+ * passed object, and builds a state object with the same shape.
+ */
+
+export default function combineReducers(reducers) {
+  // 返回一个对象, key =&gt; value 且value是function(其实就是过滤掉非function)
+  var finalReducers = pick(reducers, (val) =&gt; typeof val === 'function');
+  var sanityError;
+
+  try {
+    // 对所有的子reducer 做一些合法性断言,如果没有出错再继续下面的处理
+    // 合法性断言的内容,见API注释
+    assertReducerSanity(finalReducers);
+  } catch (e) {
+    sanityError = e;
+  }
+
+  // 所有的 key: value,将value置成了undefined,费解...
+  // 总而言之, 初始state 就是 类似 {hello: undefined, world: undefined} 的东东
+  // TODO 确认这里的逻辑
+  var defaultState = mapValues(finalReducers, () =&gt; undefined);
+
+  return function combination(state = defaultState, action) {
+    if (sanityError) {
+      throw sanityError;
+    }
+
+    var hasChanged = false;
+    // 这段代码,简单的说,就是循环一遍 finalState[key] = fn(reducer, key)
+    var finalState = mapValues(finalReducers, (reducer, key) =&gt; {
+      var previousStateForKey = state[key];
+      var nextStateForKey = reducer(previousStateForKey, action);
+      if (typeof nextStateForKey === 'undefined') {
+        // 其他一个reducer返回的是undefined,于是挂啦...抛出错误
+        var errorMessage = getUndefinedStateErrorMessage(key, action);
+        throw new Error(errorMessage);
+      }
+      // 这段代码有些费解,从redux的设计理念上来讲,除了不认识的action type,其他情况都应该返回全新的state
+      // 也就是说
+      // 1. action type 认识,返回新的state,于是这里 hasChanged 为 true
+      // 2. action type 不认识,返回原来的state,于是这里 hasChanged 为 false
+      // 3. 不管action type 是否认识, 在原来的state上修改,但是返回的是修改后的state(没有返回拷贝),那么,hasChanged还是为false
+      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+      return nextStateForKey;
+    });
+
+    // 开发环境中(于是记得在生产环境去掉)
+    // 后面再研究这段代码,毕竟不是主线路...
+    if (process.env.NODE_ENV !== 'production') {
+      var warningMessage = getUnexpectedStateKeyWarningMessage(state, finalState, action);
+      if (warningMessage) {
+        console.error(warningMessage);
+      }
+    }
+
+    return hasChanged ? finalState : state;
+  };
+}
+</code></pre></div><h2 id="四、bindactioncreator-js"><a href="http://interview.poetries.top/principle-docs/react/06-Redux%E4%B9%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html#%E5%9B%9B%E3%80%81bindactioncreator-js" class="header-anchor">#</a> 四、bindActionCreator.js</h2> <blockquote><p>https://github.com/reactjs/redux/blob/master/src/bindActionCreators.js</p></blockquote> <ul><li>先看个简单例子可能方便理解一些</li></ul> <div class="language- extra-class"><pre class="language-text"><code>var addTodo = function(text){
+    return {
+        type: 'add_todo',
+        text: text
+    };
+};
+
+var addTodos = function(){
+    return {
+        type: 'add_todos',
+        items: Array.prototype.slice.call(arguments, 0)
+    };
+};
+
+var reducer = function(state, action){
+    switch (action.type) {
+        case 'add_todo':
+            return state.concat(action.text);
+        case 'add_todos':
+            return state.concat(action.items);
+        default:
+            return state;
+    }
+};
+
+
+var store = redux.createStore(reducer, []);
+// 注意,关键代码在这里
+var actions = redux.bindActionCreators({
+    addTodo: addTodo,
+    addTodos: addTodos
+}, store.dispatch);
+
+console.log('state is: ' + store.getState());
+
+store.dispatch({type: 'add_todo', text: '读书'});
+store.dispatch({type: 'add_todos', items: ['阅读', '睡觉']});
+console.log('state is: ' + store.getState());  // state is: 读书,阅读,睡觉
+
+actions.addTodo('看电影');
+console.log('state is: ' + store.getState());  // state is: 读书,阅读,睡觉,看电影
+
+actions.addTodos(['刷牙', '洗澡']);
+console.log('state is: ' + store.getState());  // state is: 读书,阅读,睡觉,看电影,刷牙,洗澡
+</code></pre></div><ul><li>直接看代码</li></ul> <div class="language- extra-class"><pre class="language-text"><code>import mapValues from '../utils/mapValues';
+
+function bindActionCreator(actionCreator, dispatch) {
+  return (...args) =&gt; dispatch(actionCreator(...args));
+}
+
+/**
+ * Turns an object whose values are action creators, into an object with the
+ * same keys, but with every function wrapped into a `dispatch` call so they
+ * may be invoked directly. This is just a convenience method, as you can call
+ * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
+ *
+ * For convenience, you can also pass a single function as the first argument,
+ * and get a function in return.
+ *
+ * @param {Function|Object} actionCreators An object whose values are action
+ * creator functions. One handy way to obtain it is to use ES6 `import * as`
+ * syntax. You may also pass a single function.
+ *
+ * @param {Function} dispatch The `dispatch` function available on your Redux
+ * store.
+ *
+ * @returns {Function|Object} The object mimicking the original object, but with
+ * every action creator wrapped into the `dispatch` call. If you passed a
+ * function as `actionCreators`, the return value will also be a single
+ * function.
+ */
+// 假设 actionCreators === {addTodo: addTodo, removeTodo: removeTodo}
+// 简单的来说 bindActionCreators(actionCreators, dispatch)
+// 最后返回的是:
+// {
+//   addTodo: function(text){
+//      dispatch( actionCreators.addTodo(text) );
+//   },
+//   removeTodo: function(text){
+//      dispatch( actionCreators.removeTodo(text) );
+//   }
+// }
+//
+//  或者说 actionCreators === addTodo (addTodo 为 actionCreator)
+//  最后返回的是
+//  function() {
+//     dispatch(actionCreators());
+//  }
+export default function bindActionCreators(actionCreators, dispatch) {
+  if (typeof actionCreators === 'function') {
+    return bindActionCreator(actionCreators, dispatch);
+  }
+
+  if (typeof actionCreators !== 'object' || actionCreators === null || actionCreators === undefined) {  // eslint-disable-line no-eq-null
+    throw new Error(
+      `bindActionCreators expected an object or a function, instead received ${actionCreators === null ? 'null' : typeof actionCreators}. ` +
+      `Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?`
+    );
+  }
+
+  return mapValues(actionCreators, actionCreator =&gt;
+    bindActionCreator(actionCreator, dispatch)
+  );
+}
+</code></pre></div><h2 id="五、applymiddleware-js"><a href="http://interview.poetries.top/principle-docs/react/06-Redux%E4%B9%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html#%E4%BA%94%E3%80%81applymiddleware-js" class="header-anchor">#</a> 五、applyMiddleware.js</h2> <blockquote><p>https://github.com/reactjs/redux/blob/master/src/applyMiddleware.js</p></blockquote> <ul><li>中间件应该是<code>redux</code>源码里面最绕的一部分</li></ul> <p><strong>例子：redux-thunk</strong></p> <div class="language- extra-class"><pre class="language-text"><code>export default function thunkMiddleware({ dispatch, getState }) {
+  return next =&gt; action =&gt;
+    typeof action === 'function' ?
+      action(dispatch, getState) :
+      next(action);
+}
+//es5
+function thunkMiddleware(store) {
+  var dispatch = store.dispatch;
+  var getState = store.getState;
+
+  return function (next) {
+    return function (action) {
+      return typeof action === 'function' ? action(dispatch, getState) : next(action);
+    };
+  };
+}
+</code></pre></div><p><strong>自定义中间件：logger</strong></p> <ul><li>先看<code>logger</code>的实现</li></ul> <div class="language- extra-class"><pre class="language-text"><code>function middleware(store){
+    return function(next){
+        return function(action){
+            return next(action);
+        }
+    }
+}
+</code></pre></div><blockquote><p>基本看出中间件声明的模版来了，就是下面这个样子。下面结合<code>applyMiddleware</code>的调用，来说明<code>store</code>、<code>next</code>、<code>action</code> 几个参数。</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>function logger(store){
+    return function(next){
+        return function(action){
+            console.log('logger: dispatching ' + action.type);
+            var result = next(action);
+            console.log('logger: next state ' + result);
+            return result;
+        }
+    }
+}
+</code></pre></div><p><strong>applyMiddleware调用例子</strong></p> <ul><li><code>applyMiddleware</code> 的调用方式为 <code>applyMiddleware(...middlewares)(react.createStore)</code>。其实这里直接先创建 <code>store</code>，然后<code>applyMiddleware(...middlewares)(store)</code> 也很容易实现相同的效果，不过作者是故意这样设计的，为了避免在同一个store上多次应用同一个<code>middlerware</code></li> <li>中间件顶层的<code>store</code>参数，并不是常规的<code>store</code>，虽然它也有 <code>getState</code>、<code>dispatch</code> 两个方法</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// 上面的store参数，其实就是这个对象
+// 其中，store 为内部的store，我们在外面 storeWithMiddleWare.dipatch的时候，内部实现是转成 store.dispatch
+// 此外，可以看到 middlewareAPI.dispatch 方法，是最终封装后的dispatch（千万注意，如果在中间件内部 调用 store.dispatch，可能导致死循环 ）
+var middlewareAPI = {
+  getState: store.getState,
+  // 最后面, dispatch 被覆盖, 变成包装后的 dispatch 方法
+  dispatch: (action) =&gt; dispatch(action)
+};
+</code></pre></div><ul><li>第二层的next函数，其实是一个“dispatch”方法</li> <li>storeWithMiddleWare.dispatch(action) 的时候，会顺序进入各个中间件（按照定义时的顺序）。从当前的例子来看，大约如下，其实就是柯里化啦</li></ul> <div class="language- extra-class"><pre class="language-text"><code>storeWithMiddleWare.dispatch(action) --&gt; logger(store)(next)(action) --&gt; timer(store)(next)(action) --&gt; store.dispatch(action)
+</code></pre></div><p><strong>完整的示例代码</strong></p> <div class="language- extra-class"><pre class="language-text"><code>function reducer(state, action){
+    if(typeof state==='undefined') state = [];
+
+    switch(action.type){
+        case 'add_todo':
+            return state.concat(action.text);
+        default: 
+            return state;
+    }
+}
+
+function addTodo(text){
+    return {
+        type: 'add_todo',
+        text: text
+    };
+}
+
+// 这里的 store，并不是 redux.createStore(reducer, initialState) 出来的 store
+// 而是 {getState: store.getState, dispatch: function() { store.dispatch(action); }}
+// 
+function logger(store){    
+    //     
+    return function(next){
+        return function(action){
+            console.log('logger: dispatching ' + action.type);
+            var result = next(action);
+            console.log('logger: next state ' + result);
+            return result;
+        }
+    }
+}
+
+function timer(store){
+    return function(next){
+        return function(action){
+            console.log('timer: dispatching ' + action.type);
+            var result = next(action);
+            console.log('timer: next state ' + result);
+            return result;
+        }
+    }
+}
+
+var createStoreWidthMiddleware = redux.applyMiddleware(
+    logger, 
+    timer
+    )(redux.createStore);
+
+var storeWithMiddleWare = createStoreWidthMiddleware(reducer);
+storeWithMiddleWare.subscribe(function(){
+    console.log('subscribe: state is : ' + storeWithMiddleWare.getState());
+});
+console.log( storeWithMiddleWare.dispatch(addTodo('reading')) );
+</code></pre></div><p><strong>源码解析</strong></p> <div class="language- extra-class"><pre class="language-text"><code>import compose from './compose';
+
+/**
+ * Creates a store enhancer that applies middleware to the dispatch method
+ * of the Redux store. This is handy for a variety of tasks, such as expressing
+ * asynchronous actions in a concise manner, or logging every action payload.
+ *
+ * See `redux-thunk` package as an example of the Redux middleware.
+ *
+ * Because middleware is potentially asynchronous, this should be the first
+ * store enhancer in the composition chain.
+ *
+ * Note that each middleware will be given the `dispatch` and `getState` functions
+ * as named arguments.
+ *
+ * @param {...Function} middlewares The middleware chain to be applied.
+ * @returns {Function} A store enhancer applying the middleware.
+ */
+/*
+  从调用方法 applyMiddleware(...middlewares)(Redux.createStore) 可以看出
+  next 参数实际上是 Redux.createStore. 而 Redux.createStore 的调用方式为 Redux.createStore(reducer, initialState)
+  所以 applyMiddleware(...middlewares)
+  1. 参数: Redux.createStore
+  2. 返回值:一个function, 跟 Redux.createStore 接受的参数一样
+
+ */
+export default function applyMiddleware(...middlewares) {
+  return (next) =&gt; (reducer, initialState) =&gt; {
+    // 内部先创建一个store (相当于直接调用 Redux.createStore(reducer, initialState))
+    var store = next(reducer, initialState);
+    // 保存最初始的store.dispatch
+    var dispatch = store.dispatch;
+    var chain = [];
+
+    var middlewareAPI = {
+      getState: store.getState,
+      // 最后面, dispatch 被覆盖, 变成包装后的 dispatch 方法
+      dispatch: (action) =&gt; dispatch(action)
+    };
+    // 返回一个数组
+    // 贴个例子在这里做参考,redux-thunk
+    // function thunkMiddleware(store) {
+    //  var dispatch = store.dispatch;
+    //  var getState = store.getState;
+    //
+    //  这里的next其实就是dispatch
+    //  return function (next) {
+    //    return function (action) {
+    //      return typeof action === 'function' ? action(dispatch, getState) : next(action);
+    //    };
+    //  };
+    //}
+    /*
+      chain 是个数组, 参考上面的 middlleware (redux-thunk),可以看到,chain的每个元素为如下形式的function
+      并且, 传入的 store.getState 为原始的 store.getState,而 dispatch则是包装后的 dispatch(不是原始的store.dispatch)
+      似乎是为了确保, 在每个middleware里调用 dispatch(action), 最终都是 用原始的 store.dispatch(action)
+      避免 store.dispatch 被覆盖, 导致middleware 顺序调用的过程中, store.dispatch的值变化 --&gt; store.dispatch 返回的值可能会有不同
+      违背 redux 的设计理念
+
+      这里的 next 则为 原始的 store.dispatch (见下面 compose(...chain)(store.dispatch) )
+      function (next) {
+        return function (action) {
+
+        }
+      }
+     */
+    chain = middlewares.map(middleware =&gt; middleware(middlewareAPI));
+
+    // compose(...chain)(store.dispatch) 返回了一个function
+    // 伪代码如下,
+    // function (action) {
+    //   middleware(store)(store.dispatch);
+    // }
+    dispatch = compose(...chain)(store.dispatch);  // 从右到左, middleware1( middleware2( middleware3(dispatch) ) )
+
+    // 于是,最终调用 applyMiddleware(...middlewares)(Redux.createStore)
+    // 返回的 store, getState,subscribe 方法都是原始的那个 store.getState, store.subscribe
+    // 至于dispatch是封装过的
+    return {
+      ...store,
+      dispatch
+    };
+  };
+}
+</code></pre></div></div> </body></html>
